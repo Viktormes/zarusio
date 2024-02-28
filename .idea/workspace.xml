@@ -5,48 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/map/theMap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectChest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectDoor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/SuperObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/chest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/door.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/powersocks.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/back1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/back2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/character_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/front1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/front2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/player/zarusio_player_character.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/Zarusiothegame.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/bootsSound.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/coolstone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/grass1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/grass2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/greentree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/littlebloodystone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/purptree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/reallybloody.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/stonewithsomegrass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/water.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tile/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +109,7 @@
       <workItem from="1707835326835" duration="10096000" />
       <workItem from="1708071355067" duration="12382000" />
       <workItem from="1708418564590" duration="1207000" />
-      <workItem from="1708688865251" duration="25288000" />
+      <workItem from="1708688865251" duration="27511000" />
     </task>
     <servers />
   </component>

@@ -24,14 +24,22 @@ public class GamePanel extends JPanel implements Runnable {
     int FPS = 60;
 
     public TileManager tm = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
-    Sound sound = new Sound();
+    KeyHandler keyH = new KeyHandler(this);
+    Sound music = new Sound();
+    Sound soundEffect = new Sound();
 
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetManager assetManager = new AssetManager(this);
+    public UI ui = new UI(this);
+
+    Thread gameThread;
+
     public Player player = new Player(this, keyH);
     public SuperObject[] itemObject = new SuperObject[10];
-    Thread gameThread;
+
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
 
     public GamePanel()  {
@@ -46,7 +54,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         assetManager.setObject();
 
-        playMusic(1);
+       // playMusic(1);
+        gameState = playState;
     }
 
     public void startGameThread() {
@@ -85,7 +94,6 @@ public class GamePanel extends JPanel implements Runnable {
             }
 
             if (timer >= 1000000000) {
-                System.out.println("FPS: " + drawCount);
                 drawCount = 0;
                 timer = 0;
             }
@@ -96,14 +104,25 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     public void update() {
-        player.update();
+
+        if(gameState == playState) {
+            player.update();
+        }
+        if (gameState == pauseState) {
+            //pause menu
+        }
 
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         Graphics2D g2d = (Graphics2D) g;
+
+        long drawStartTime = 0;
+        if(keyH.tPressed) {
+            drawStartTime = System.nanoTime();
+        }
+
 
         tm.draw(g2d);
 
@@ -115,6 +134,17 @@ public class GamePanel extends JPanel implements Runnable {
 
         player.draw(g2d);
 
+        ui.draw(g2d);
+
+
+        if(keyH.tPressed) {
+            long drawEndTime = System.nanoTime();
+            long passed = drawEndTime - drawStartTime;
+            g2d.setColor(Color.WHITE);
+            g2d.drawString("Draw Time: " + passed , 10, 400);
+            System.out.println("Draw Time: " + passed);
+        }
+
         g2d.dispose();
 
 
@@ -122,19 +152,19 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void playMusic(int i) {
 
-        sound.setFile(i);
-        sound.play();
-        sound.loop();
+        music.setFile(i);
+        music.play();
+        music.loop();
     }
 
     public void stopMusic() {
 
-        sound.stop();
+        music.stop();
     }
 
     public void playSound(int i) {
 
-        sound.setFile(i);
-        sound.play();
+        soundEffect.setFile(i);
+        soundEffect.play();
     }
 }

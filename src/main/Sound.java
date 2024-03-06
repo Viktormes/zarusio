@@ -13,8 +13,9 @@ public class Sound {
 
     public Sound() {
 
-        soundURL[0] = getClass().getResource("/res/sound/bootsSound.wav");
+        soundURL[0] = getClass().getResource("/res/sound/openDoorSound.wav");
         soundURL[1] = getClass().getResource("/res/sound/Zarusiothegame.wav");
+        soundURL[2] = getClass().getResource("/res/sound/pickUpSound.wav");
     }
 
     public void setFile(int i) {

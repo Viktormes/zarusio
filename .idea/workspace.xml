@@ -5,7 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/UtilityTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/openDoorSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/pickUpSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/otherTile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectChest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectDoor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDoor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/SuperObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/SuperObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/sound/bootsSound.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +56,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/sound",
+    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/tiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,9 +72,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/res/tiles" />
       <recent name="$PROJECT_DIR$/src/res/sound" />
       <recent name="$PROJECT_DIR$/src/res/items" />
-      <recent name="$PROJECT_DIR$/src/res/tiles" />
       <recent name="$PROJECT_DIR$/src/res/player" />
       <recent name="$PROJECT_DIR$/src/res/maps" />
     </key>
@@ -109,7 +126,8 @@
       <workItem from="1707835326835" duration="10096000" />
       <workItem from="1708071355067" duration="12382000" />
       <workItem from="1708418564590" duration="1207000" />
-      <workItem from="1708688865251" duration="27511000" />
+      <workItem from="1708688865251" duration="28700000" />
+      <workItem from="1709331291652" duration="9715000" />
     </task>
     <servers />
   </component>

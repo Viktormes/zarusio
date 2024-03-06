@@ -19,6 +19,9 @@ public class Player extends Entity{
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
+
+        super(gp);
+
         this.gp = gp;
         this.keyH = keyH;
 
@@ -46,30 +49,15 @@ public class Player extends Entity{
 
     public void getPlayerImage() {
 
-        front = setup("zarusio_player_character");
-        front1 = setup("front1");
-        front2 = setup("front2");
-        back1 = setup("back1");
-        back2 = setup("back2");
-        right1 = setup("right1");
-        right2 = setup("right2");
-        left1 = setup("left1");
-        left2 = setup("left2");
+        front1 = setup("/res/player/front1");
+        front2 = setup("/res/player/front2");
+        back1 = setup("/res/player/back1");
+        back2 = setup("/res/player/back2");
+        right1 = setup("/res/player/right1");
+        right2 = setup("/res/player/right2");
+        left1 = setup("/res/player/left1");
+        left2 = setup("/res/player/left2");
 
-    }
-
-    public BufferedImage setup (String imageName) {
-
-        UtilityTool utilityTool = new UtilityTool();
-        BufferedImage image = null;
-
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream("/res/player/" + imageName + ".png"));
-            image = utilityTool.scaleImage(image, gp.tileSize, gp.tileSize);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return image;
     }
 
     public void update() {
@@ -91,6 +79,10 @@ public class Player extends Entity{
 
             int objIndex = gp.collisionChecker.checkObject(this, true);
             pickUpItem(objIndex);
+
+            int npcIndex = gp.collisionChecker.checkEntity(this,gp.npc);
+
+            interactNPC(npcIndex);
 
             if(!collisionOn) {
 
@@ -116,6 +108,13 @@ public class Player extends Entity{
         }
     }
 
+    public void interactNPC(int i) {
+
+        if (i != 999) {
+            System.out.println("Interacting with NPC ");
+        }
+    }
+
     public void pickUpItem(int i) {
 
         if(i != 999) {
@@ -123,7 +122,7 @@ public class Player extends Entity{
 
             if (objectName.equals("superSocks")) {
                 gp.playSound(2);
-                speed += 3;
+                speed += 10;
                 gp.itemObject[i] = null;
                 gp.ui.drawMessage("You found super socks! You can now move faster!");
             }
@@ -168,7 +167,27 @@ public class Player extends Entity{
                 }
                 break;
         }
-        g2d.drawImage(bufferedImage, screenX, screenY,null);
+
+        int x = screenX;
+        int y = screenY;
+
+        if(screenX > worldX) {
+            x = worldX;
+        }
+        if(screenY > worldY) {
+            y = worldY;
+        }
+        int rightOffSet = gp.screenWidth - screenX;
+        if (rightOffSet > gp.worldWidth - worldX) {
+            x = gp.screenWidth - (gp.worldWidth - worldX);
+        }
+        int bottomOffSet = gp.screenHeight - screenY;
+        if (bottomOffSet > gp.worldHeight - worldY) {
+            y = gp.screenHeight - (gp.worldHeight - worldY);
+        }
+
+
+        g2d.drawImage(bufferedImage, x, y,null);
 
     }
 

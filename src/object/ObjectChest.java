@@ -1,20 +1,17 @@
 package object;
 
+import entity.Entity;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
 
-public class ObjectChest extends SuperObject{
+public class ObjectChest extends Entity {
 
-    GamePanel gp;
+
     public ObjectChest(GamePanel gp) {
+        super(gp);
 
         name = "chest";
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream("/res/items/chest.png"));
-            image = utilityTool.scaleImage(image, gp.tileSize, gp.tileSize);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        front1 = setup("/res/items/chest");
     }
 }

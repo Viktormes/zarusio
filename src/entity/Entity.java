@@ -13,8 +13,8 @@ public class Entity {
     public int worldX, worldY;
     public int speed;
 
-    public BufferedImage front, front1, front2, back1, back2, left1, left2, right1, right2;
-    public String direction;
+    public BufferedImage mainTitleScreenImage, front1, front2, back1, back2, left1, left2, right1, right2;
+    public String direction ="down";
 
     public int spriteCounter = 0;
     public int spriteNumber = 1;
@@ -22,14 +22,37 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
+    public boolean invincible = false;
+    public int invincibleCounter = 0;
+    String[] dialogues = new String[20];
+    int dialogIndex = 0;
+    public BufferedImage image, image2, image3;
+    public String name;
+    public boolean collision = false;
+    public int type;
+
+    public int maxHealth;
+    public int currentHealth;
 
     public Entity(GamePanel gp) {
         this.gp = gp;
     }
 
-    public void setAction() {
-    }
+    public void setAction() {}
+    public void speak() {
+        if(dialogues[dialogIndex] == null){
+            dialogIndex = 0;
+        }
+        gp.ui.currentDialog = dialogues[dialogIndex];
+        dialogIndex++;
 
+        switch (gp.player.direction){
+            case "up": direction = "down"; break;
+            case "down": direction = "up"; break;
+            case "left": direction = "right"; break;
+            case "right": direction = "left"; break;
+        }
+    }
     public void update() {
 
         setAction();
@@ -37,7 +60,17 @@ public class Entity {
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
         gp.collisionChecker.checkObject(this,false);
-        gp.collisionChecker.checkPlayer(this);
+        gp.collisionChecker.checkEntity(this, gp.npc);
+        gp.collisionChecker.checkEntity(this, gp.enemy);
+        boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
+
+        if (this.type == 2 && contactPlayer) {
+            if(!gp.player.invincible) {
+                gp.player.currentHealth -= 1;
+                gp.player.invincible = true;
+            }
+
+        }
 
         if (!collisionOn) {
             switch (direction) {

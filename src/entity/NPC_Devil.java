@@ -4,7 +4,7 @@ import main.GamePanel;
 
 import java.util.Random;
 
-public class NPC_Devil extends Entity{
+public class NPC_Devil extends Entity {
 
     public NPC_Devil(GamePanel gp) {
         super(gp);
@@ -14,7 +14,7 @@ public class NPC_Devil extends Entity{
 
 
         getNpcImage();
-
+        setDialog();
     }
 
     public void getNpcImage() {
@@ -30,12 +30,20 @@ public class NPC_Devil extends Entity{
 
     }
 
+    public void setDialog() {
+
+        dialogues[0] = "I am the devil";
+        dialogues[1] = "Welcome to my domain! MOHAHA \n*cough* *cough* HAHAA";
+        dialogues[2] = "So you've come here to DIE?!";
+        dialogues[3] = "You will never leave this place alive!";
+    }
+
     public void setAction() {
 
 
         actionLockCounter++;
 
-        if (actionLockCounter == 120) {
+        if (actionLockCounter == 480) {
             Random random = new Random();
             int i = random.nextInt(100) + 1;
 
@@ -53,6 +61,12 @@ public class NPC_Devil extends Entity{
             }
             actionLockCounter = 0;
         }
+    }
+
+    public void speak() {
+
+        super.speak();
+
     }
 
 }

@@ -1,5 +1,6 @@
 package main;
 
+import enemy.PlantMonster;
 import entity.NPC_Devil;
 import object.ObjectChest;
 import object.ObjectDoor;
@@ -24,7 +25,19 @@ public class AssetManager {
 
     public void setNPC() {
         gp.npc[0] = new NPC_Devil(gp);
-        gp.npc[0].worldX = 24 * gp.tileSize;
-        gp.npc[0].worldY = 24 * gp.tileSize;
+        gp.npc[0].worldX = 23 * gp.tileSize;
+        gp.npc[0].worldY = 20 * gp.tileSize;
+
+    }
+
+    public void setEnemy() {
+        gp.enemy[0] = new PlantMonster(gp);
+        gp.enemy[0].worldX = 23 * gp.tileSize;
+        gp.enemy[0].worldY = 36 * gp.tileSize;
+
+        gp.enemy[1] = new PlantMonster(gp);
+        gp.enemy[1].worldX = 23 * gp.tileSize;
+        gp.enemy[1].worldY = 38 * gp.tileSize;
+
     }
 }

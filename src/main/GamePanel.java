@@ -2,11 +2,13 @@ package main;
 
 import entity.Entity;
 import entity.Player;
-import object.SuperObject;
 import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable {
 
@@ -27,24 +29,28 @@ public class GamePanel extends JPanel implements Runnable {
     int FPS = 60;
 
     public TileManager tm = new TileManager(this);
-    KeyHandler keyH = new KeyHandler(this);
+    public KeyHandler keyH = new KeyHandler(this);
     Sound music = new Sound();
     Sound soundEffect = new Sound();
 
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetManager assetManager = new AssetManager(this);
     public UI ui = new UI(this);
+    public EventHandler eventHandler = new EventHandler(this);
 
     Thread gameThread;
 
     public Player player = new Player(this, keyH);
-    public SuperObject[] itemObject = new SuperObject[10];
-    public Entity npc[] = new Entity[10];
+    public Entity[] itemObject = new Entity[10];
+    public Entity[] npc = new Entity[10];
+    public Entity[] enemy = new Entity[20];
+    ArrayList<Entity> entityList = new ArrayList<>();
 
     public int gameState;
+    public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
-
+    public final int dialogState = 3;
 
     public GamePanel()  {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -58,15 +64,15 @@ public class GamePanel extends JPanel implements Runnable {
 
         assetManager.setObject();
         assetManager.setNPC();
+        assetManager.setEnemy();
        // playMusic(1);
-        gameState = playState;
+        gameState = titleState;
     }
 
     public void startGameThread() {
 
         gameThread = new Thread(this);
         gameThread.start();
-
 
     }
 
@@ -80,7 +86,6 @@ public class GamePanel extends JPanel implements Runnable {
         long timer = 0;
         int drawCount = 0;
 
-
         while (gameThread != null) {
 
             currentTime = System.nanoTime();
@@ -90,7 +95,6 @@ public class GamePanel extends JPanel implements Runnable {
             lastTime = currentTime;
 
             if (delta >= 1) {
-
                 update();
                 repaint();
                 delta--;
@@ -101,7 +105,6 @@ public class GamePanel extends JPanel implements Runnable {
                 drawCount = 0;
                 timer = 0;
             }
-
 
         }
 
@@ -116,6 +119,12 @@ public class GamePanel extends JPanel implements Runnable {
                     entity.update();
                 }
             }
+
+            for (Entity entity : enemy) {
+                if (entity != null) {
+                    entity.update();
+                }
+            }
         }
         if (gameState == pauseState) {
             //pause menu
@@ -125,43 +134,67 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
+        Graphics2D g2 = (Graphics2D) g;
 
         long drawStartTime = 0;
         if(keyH.tPressed) {
             drawStartTime = System.nanoTime();
         }
 
-
-        tm.draw(g2d);
-
-        for (int i = 0; i < itemObject.length; i++) {
-            if (itemObject[i] != null) {
-                itemObject[i].draw(g2d, this);
-            }
+        if (gameState == titleState) {
+            ui.draw(g2);
         }
 
-        for(int i = 0; i < npc.length; i++) {
-            if(npc[i] != null) {
-                npc[i].draw(g2d);
+        else {
+
+            tm.draw(g2);
+
+            entityList.add(player);
+            for (Entity entity : npc) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
             }
+            for (Entity entity : itemObject) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
+            }
+            for (Entity entity : enemy) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
+            }
+
+            entityList.sort(new Comparator<Entity>() {
+                @Override
+                public int compare(Entity e1, Entity e2) {
+
+                    int result = Integer.compare(e1.worldY, e2.worldY);
+                    return result;
+                }
+            });
+
+            for (Entity entity : entityList) {
+                entity.draw(g2);
+            }
+            for(int i = 0; i < entityList.size(); i++) {
+                entityList.remove(i);
+            }
+
+                    ui.draw(g2);
+
         }
-
-        player.draw(g2d);
-
-        ui.draw(g2d);
-
 
         if(keyH.tPressed) {
             long drawEndTime = System.nanoTime();
             long passed = drawEndTime - drawStartTime;
-            g2d.setColor(Color.WHITE);
-            g2d.drawString("Draw Time: " + passed , 10, 400);
+            g2.setColor(Color.WHITE);
+            g2.drawString("Draw Time: " + passed , 10, 400);
             System.out.println("Draw Time: " + passed);
         }
 
-        g2d.dispose();
-
+        g2.dispose();
 
     }
 

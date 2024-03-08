@@ -13,10 +13,9 @@ public class Main {
         window.setTitle("Zarusio");
 
         GamePanel gamePanel = new GamePanel();
+
         window.add(gamePanel);
-
         window.pack();
-
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
@@ -24,5 +23,4 @@ public class Main {
         gamePanel.startGameThread();
 
     }
-
 }

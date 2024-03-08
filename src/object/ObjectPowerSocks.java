@@ -1,23 +1,20 @@
 package object;
 
+import entity.Entity;
 import main.GamePanel;
 
 import javax.imageio.ImageIO;
 
-public class ObjectPowerSocks extends SuperObject{
+public class ObjectPowerSocks extends Entity {
 
-    GamePanel gp;
+
 
 public ObjectPowerSocks(GamePanel gp) {
 
-        name = "superSocks";
-        try {
-            image = ImageIO.read(getClass().getResourceAsStream("/res/items/powersocks.png"));
-            image = utilityTool.scaleImage(image, gp.tileSize, gp.tileSize);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        collision = true;
-    }
+    super(gp);
+    name = "superSocks";
+    front1 = setup("/res/items/powersocks");
+    collision = true;
 
+}
 }

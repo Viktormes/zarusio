@@ -2,12 +2,9 @@ package entity;
 
 import main.GamePanel;
 import main.KeyHandler;
-import main.UtilityTool;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
 
 public class Player extends Entity{
 
@@ -16,7 +13,6 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
-
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -40,15 +36,20 @@ public class Player extends Entity{
         getPlayerImage();
     }
     public void setDefaultValues() {
+
         worldX = gp.tileSize * 21;
         worldY = gp.tileSize * 23;
         speed = 8;
         direction = "down";
 
+        maxHealth = 6;
+        currentHealth = maxHealth;
+
     }
 
     public void getPlayerImage() {
 
+        mainTitleScreenImage = setup("/res/player/mainTitleScreenImage");
         front1 = setup("/res/player/front1");
         front2 = setup("/res/player/front2");
         back1 = setup("/res/player/back1");
@@ -81,8 +82,18 @@ public class Player extends Entity{
             pickUpItem(objIndex);
 
             int npcIndex = gp.collisionChecker.checkEntity(this,gp.npc);
-
             interactNPC(npcIndex);
+
+            int enemyIndex = gp.collisionChecker.checkEntity(this,gp.enemy);
+
+            contactEnemy(enemyIndex);
+
+
+
+            gp.eventHandler.checkEvent();
+
+            keyH.enterPressed = false;
+
 
             if(!collisionOn) {
 
@@ -92,7 +103,6 @@ public class Player extends Entity{
                     case "left": worldX -= speed; break;
                     case "right": worldX += speed; break;
                 }
-
 
             }
 
@@ -106,12 +116,35 @@ public class Player extends Entity{
                 spriteCounter = 0;
             }
         }
+
+        if (invincible) {
+            invincibleCounter++;
+            if (invincibleCounter > 60) {
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
+    }
+
+    private void contactEnemy(int enemyIndex) {
+
+        if(enemyIndex != 999) {
+
+            if (!invincible) {
+                currentHealth -= 1;
+                invincible = true;
+            }
+        }
+
     }
 
     public void interactNPC(int i) {
 
         if (i != 999) {
-            System.out.println("Interacting with NPC ");
+            if(keyH.enterPressed) {
+                gp.gameState = gp.dialogState;
+                gp.npc[i].speak();
+            }
         }
     }
 
@@ -186,8 +219,13 @@ public class Player extends Entity{
             y = gp.screenHeight - (gp.worldHeight - worldY);
         }
 
+        if (invincible){
+            g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        }
 
         g2d.drawImage(bufferedImage, x, y,null);
+
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 
     }
 

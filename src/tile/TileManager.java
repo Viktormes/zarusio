@@ -38,7 +38,7 @@ public class TileManager {
         setup(5, "grass2", false);
         setup(6, "greentree", true);
         setup(7, "water", true);
-        setup(8,"sandstone",false);
+        setup(8,"sandstone1",false);
 
     }
 

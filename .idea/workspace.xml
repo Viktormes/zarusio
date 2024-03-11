@@ -6,23 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +121,7 @@
       <workItem from="1709713650380" duration="21461000" />
       <workItem from="1709887061372" duration="46466000" />
       <workItem from="1710153487584" duration="2216000" />
-      <workItem from="1710160591310" duration="3442000" />
+      <workItem from="1710160591310" duration="3675000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

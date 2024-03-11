@@ -324,11 +324,11 @@ public class Player extends Entity {
         if (i != 999) {
             String objectName = gp.itemObject[i].name;
 
-            if (objectName.equals("superSocks")) {
+            if (objectName.equals("Super Socks")) {
                 gp.playSound(2);
                 speed += 10;
+                inventory.add(gp.itemObject[i]);
                 gp.itemObject[i] = null;
-                inventory.add(new ObjectPowerSocks(gp));
                 gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
             }
         }

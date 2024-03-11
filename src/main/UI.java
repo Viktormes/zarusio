@@ -79,8 +79,6 @@ public class UI {
 
     }
 
-
-
     public void drawCharacterScreen() {
 
         final int frameX = gp.tileSize;
@@ -110,7 +108,7 @@ public class UI {
         textY += lineHeight;
         g2.drawString("Dexterity", textX, textY);
         textY += lineHeight;
-        g2.drawString("Next level", textX, textY);
+        g2.drawString("EXP to level up", textX, textY);
         textY += lineHeight;
         g2.drawString("Gold", textX, textY);
         textY += lineHeight + 35;
@@ -159,7 +157,7 @@ public class UI {
         g2.drawString(value, textX, textY);
         textY += lineHeight;
 
-        value = String.valueOf(gp.player.nextLevelExperience);
+        value = String.valueOf(gp.player.nextLevelExperience - gp.player.experience);
         textX = getXForAlignToRight(value, tailX);
         g2.drawString(value, textX, textY);
         textY += lineHeight;

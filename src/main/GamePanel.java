@@ -7,7 +7,6 @@ import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -51,8 +50,9 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogState = 3;
+    public final int characterState = 4;
 
-    public GamePanel()  {
+    public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true);
@@ -65,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable {
         assetManager.setObject();
         assetManager.setNPC();
         assetManager.setEnemy();
-       // playMusic(1);
+        //playMusic(1);
         gameState = titleState;
     }
 
@@ -112,7 +112,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void update() {
 
-        if(gameState == playState) {
+        if (gameState == playState) {
             player.update();
             for (Entity entity : npc) {
                 if (entity != null) {
@@ -120,9 +120,14 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
 
-            for (Entity entity : enemy) {
-                if (entity != null) {
-                    entity.update();
+            for (int i = 0; i < enemy.length; i++) {
+                if (enemy[i] != null) {
+                    if(enemy[i].alive && !enemy[i].dying){
+                        enemy[i].update();
+                    }
+                    if(!enemy[i].alive) {
+                        enemy[i] = null;
+                    }
                 }
             }
         }
@@ -137,15 +142,13 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2 = (Graphics2D) g;
 
         long drawStartTime = 0;
-        if(keyH.tPressed) {
+        if (keyH.tPressed) {
             drawStartTime = System.nanoTime();
         }
 
         if (gameState == titleState) {
             ui.draw(g2);
-        }
-
-        else {
+        } else {
 
             tm.draw(g2);
 
@@ -178,19 +181,17 @@ public class GamePanel extends JPanel implements Runnable {
             for (Entity entity : entityList) {
                 entity.draw(g2);
             }
-            for(int i = 0; i < entityList.size(); i++) {
-                entityList.remove(i);
-            }
+            entityList.clear();
 
-                    ui.draw(g2);
+            ui.draw(g2);
 
         }
 
-        if(keyH.tPressed) {
+        if (keyH.tPressed) {
             long drawEndTime = System.nanoTime();
             long passed = drawEndTime - drawStartTime;
             g2.setColor(Color.WHITE);
-            g2.drawString("Draw Time: " + passed , 10, 400);
+            g2.drawString("Draw Time: " + passed, 10, 400);
             System.out.println("Draw Time: " + passed);
         }
 
@@ -201,6 +202,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void playMusic(int i) {
 
         music.setFile(i);
+        music.setVolume(-20.0f);
         music.play();
         music.loop();
     }
@@ -213,6 +215,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void playSound(int i) {
 
         soundEffect.setFile(i);
+        soundEffect.setVolume(-20.0f);
         soundEffect.play();
     }
 }

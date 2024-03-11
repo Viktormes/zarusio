@@ -19,14 +19,14 @@ public class NPC_Devil extends Entity {
 
     public void getNpcImage() {
 
-        front1 = setup("/res/NPC/NPCfront1");
-        front2 = setup("/res/NPC/NPCfront2");
-        back1 = setup("/res/NPC/NPCback1");
-        back2 = setup("/res/NPC/NPCback2");
-        right1 = setup("/res/NPC/NPCfront1");
-        right2 = setup("/res/NPC/NPCfront2");
-        left1 = setup("/res/NPC/NPCback1");
-        left2 = setup("/res/NPC/NPCback2");
+        front1 = setup("/res/NPC/NPCfront1",gp.tileSize,gp.tileSize);
+        front2 = setup("/res/NPC/NPCfront2",gp.tileSize,gp.tileSize);
+        back1 = setup("/res/NPC/NPCback1",gp.tileSize,gp.tileSize);
+        back2 = setup("/res/NPC/NPCback2",gp.tileSize,gp.tileSize);
+        right1 = setup("/res/NPC/NPCfront1",gp.tileSize,gp.tileSize);
+        right2 = setup("/res/NPC/NPCfront2",gp.tileSize,gp.tileSize);
+        left1 = setup("/res/NPC/NPCback1",gp.tileSize,gp.tileSize);
+        left2 = setup("/res/NPC/NPCback2",gp.tileSize,gp.tileSize);
 
     }
 

@@ -31,13 +31,30 @@ public class AssetManager {
     }
 
     public void setEnemy() {
-        gp.enemy[0] = new PlantMonster(gp);
-        gp.enemy[0].worldX = 23 * gp.tileSize;
-        gp.enemy[0].worldY = 36 * gp.tileSize;
 
-        gp.enemy[1] = new PlantMonster(gp);
-        gp.enemy[1].worldX = 23 * gp.tileSize;
-        gp.enemy[1].worldY = 38 * gp.tileSize;
+
+        int i = 0;
+
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 10 * gp.tileSize;
+        gp.enemy[i].worldY = 46 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 23 * gp.tileSize;
+        gp.enemy[i].worldY = 38 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 23 * gp.tileSize;
+        gp.enemy[i].worldY = 40 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 43 * gp.tileSize;
+        gp.enemy[i].worldY = 10 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 23 * gp.tileSize;
+        gp.enemy[i].worldY = 39 * gp.tileSize;
+
 
     }
 }

@@ -12,7 +12,7 @@ public class ObjectDoor extends Entity {
             super(gp);
 
             name = "door";
-            front1 = setup("/res/items/door");
+            front1 = setup("/res/items/door",gp.tileSize,gp.tileSize);
             collision = true;
 
         }

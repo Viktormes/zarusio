@@ -7,14 +7,21 @@ import java.util.Random;
 
 public class PlantMonster extends Entity {
 
+    GamePanel gp;
+
     public PlantMonster(GamePanel gp) {
         super(gp);
 
+        this.gp = gp;
+
         type = 2;
-        name = "plantMonster";
+        name = "Plant Monster";
         speed = 1;
         maxHealth = 4;
         currentHealth = maxHealth;
+        attack = 3;
+        defense = 0;
+        experience = 3;
 
 
 
@@ -23,14 +30,14 @@ public class PlantMonster extends Entity {
 
     public void getImage() {
 
-        front1 = setup("/res/enemy/plantMonsterFront1");
-        front2 = setup("/res/enemy/plantMonsterFront2");
-        back1 = setup("/res/enemy/plantMonsterFront1");
-        back2 = setup("/res/enemy/plantMonsterFront2");
-        left1 = setup("/res/enemy/plantMonsterFront1");
-        left2 = setup("/res/enemy/plantMonsterFront2");
-        right1 = setup("/res/enemy/plantMonsterFront1");
-        right2 = setup("/res/enemy/plantMonsterFront2");
+        front1 = setup("/res/enemy/plantMonsterFront1",gp.tileSize,gp.tileSize);
+        front2 = setup("/res/enemy/plantMonsterFront2",gp.tileSize,gp.tileSize);
+        back1 = setup("/res/enemy/plantMonsterFront1",gp.tileSize,gp.tileSize);
+        back2 = setup("/res/enemy/plantMonsterFront2",gp.tileSize,gp.tileSize);
+        left1 = setup("/res/enemy/plantMonsterFront1",gp.tileSize,gp.tileSize);
+        left2 = setup("/res/enemy/plantMonsterFront2",gp.tileSize,gp.tileSize);
+        right1 = setup("/res/enemy/plantMonsterFront1",gp.tileSize,gp.tileSize);
+        right2 = setup("/res/enemy/plantMonsterFront2",gp.tileSize,gp.tileSize);
     }
 
     public void setAction() {
@@ -56,6 +63,12 @@ public class PlantMonster extends Entity {
             actionLockCounter = 0;
         }
     }
+    public void damageReaction() {
 
-}
+        actionLockCounter = 0;
+        direction = gp.player.direction;
+        }
+    }
+
+
 

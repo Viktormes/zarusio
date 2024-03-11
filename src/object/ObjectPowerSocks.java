@@ -13,7 +13,7 @@ public ObjectPowerSocks(GamePanel gp) {
 
     super(gp);
     name = "superSocks";
-    front1 = setup("/res/items/powersocks");
+    front1 = setup("/res/items/powersocks",gp.tileSize,gp.tileSize);
     collision = true;
 
 }

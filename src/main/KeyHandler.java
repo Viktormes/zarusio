@@ -6,7 +6,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, spacePressed, cPressed;
     public boolean tPressed = false;
 
 
@@ -38,21 +38,21 @@ public class KeyHandler implements KeyListener {
                 if (code == KeyEvent.VK_S) {
                     gp.ui.commandNum++;
                     if (gp.ui.commandNum > 2) {
-                        gp.ui.commandNum = 0;
-                    }
+                    gp.ui.commandNum = 0;
                 }
+            }
 
-                if (code == KeyEvent.VK_ENTER) {
-                    if (gp.ui.commandNum == 0) {
-                        gp.ui.titleScreenState = 1;
-                    }
-                    if (gp.ui.commandNum == 1) {
-                        // Add later
-                    }
-                    if (gp.ui.commandNum == 2) {
-                        System.exit(0);
-                    }
+            if (code == KeyEvent.VK_ENTER) {
+                if (gp.ui.commandNum == 0) {
+                    gp.ui.titleScreenState = 1;
                 }
+                if (gp.ui.commandNum == 1) {
+                    // Add later
+                }
+                if (gp.ui.commandNum == 2) {
+                    System.exit(0);
+                }
+            }
             }
             else if (gp.ui.titleScreenState == 1) {
 
@@ -104,9 +104,18 @@ public class KeyHandler implements KeyListener {
                     tPressed = !tPressed;
                 }
 
+                if(code == KeyEvent.VK_SPACE){
+                    spacePressed = true;
+                }
+
                 if (code == KeyEvent.VK_P) {
                     gp.gameState = gp.pauseState;
                 }
+
+                if (code == KeyEvent.VK_C) {
+                    gp.gameState = gp.characterState;
+                }
+
                 if (code == KeyEvent.VK_ENTER) {
                     enterPressed = true;
                 }
@@ -120,8 +129,13 @@ public class KeyHandler implements KeyListener {
                 }
             }
 
-    }
+            else if (gp.gameState == gp.characterState) {
+                if (code == KeyEvent.VK_C) {
+                    gp.gameState = gp.playState;
+                }
+            }
 
+    }
     @Override
     public void keyReleased(KeyEvent e) {
 
@@ -138,6 +152,12 @@ public class KeyHandler implements KeyListener {
         }
         if(code == KeyEvent.VK_D) {
             rightPressed = false;
+        }
+        if(code == KeyEvent.VK_ENTER) {
+            enterPressed = false;
+        }
+        if(code == KeyEvent.VK_SPACE) {
+            spacePressed = false;
         }
     }
 }

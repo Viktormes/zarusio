@@ -5,16 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileFour.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileOne.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileThree.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileTwo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,33 +46,35 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2boJHoIQ8Ob5VxUO8G23s3KmszY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "develop",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/tiles",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/viktormes/Documents/Development/Private/Zarusio/src/res/tiles&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/res/tiles" />
@@ -126,6 +136,7 @@
       <workItem from="1709713650380" duration="21461000" />
       <workItem from="1709887061372" duration="46466000" />
       <workItem from="1710153487584" duration="2216000" />
+      <workItem from="1710160591310" duration="3442000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

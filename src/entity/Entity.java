@@ -25,6 +25,7 @@ public class Entity {
 
     public int attackValue;
     public int defenseValue;
+    public String itemDescription = "";
 
     public int spriteNumber = 1;
     String[] dialogues = new String[20];

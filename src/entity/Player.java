@@ -4,9 +4,12 @@ import main.GamePanel;
 import main.KeyHandler;
 import object.ObjectDefaultRobe;
 import object.ObjectDefaultWhip;
+import object.ObjectKey;
+import object.ObjectPowerSocks;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 public class Player extends Entity {
 
@@ -17,6 +20,9 @@ public class Player extends Entity {
     public final int screenY;
     private int attackCoolDown = 0;
     private final int attackCoolDownPeriod = 22;
+
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -43,6 +49,7 @@ public class Player extends Entity {
         setDefaultValues();
         getPlayerImage();
         getPlayerAttackImages();
+        setItems();
     }
 
     public void setDefaultValues() {
@@ -65,6 +72,14 @@ public class Player extends Entity {
         currentRobe = new ObjectDefaultRobe(gp);
         attack = getAttack();
         defense = getDefense();
+    }
+
+    public void setItems() {
+        inventory.add(currentWeapon);
+        inventory.add(currentRobe);
+        inventory.add(new ObjectKey(gp));
+        inventory.add(new ObjectKey(gp));
+
     }
 
     public int getAttack() {
@@ -313,6 +328,7 @@ public class Player extends Entity {
                 gp.playSound(2);
                 speed += 10;
                 gp.itemObject[i] = null;
+                inventory.add(new ObjectPowerSocks(gp));
                 gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
             }
         }

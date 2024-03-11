@@ -32,13 +32,14 @@ public class TileManager {
 
         setup(0, "grass2", false);
         setup(1, "otherTile", false);
-        setup(2, "reallybloody", false);
-        setup(3, "stonewithsomegrass", false);
+        setup(2, "stoneTileOne", false);
+        setup(3, "stoneTileTwo", false);
         setup(4, "coolstone", true);
-        setup(5, "grass2", false);
+        setup(5, "stoneTileThree", false);
         setup(6, "greentree", true);
         setup(7, "water", true);
         setup(8,"sandstone1",false);
+        setup(9,"stoneTileFour",false);
 
     }
 

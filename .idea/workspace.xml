@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileFour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileOne.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileThree.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/stoneTileTwo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +51,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/sound",
+    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/tiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -58,11 +67,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/res/tiles" />
       <recent name="$PROJECT_DIR$/src/res/sound" />
       <recent name="$PROJECT_DIR$/src/res/fonts" />
       <recent name="$PROJECT_DIR$/src/res/items" />
       <recent name="$PROJECT_DIR$/src/res/player" />
-      <recent name="$PROJECT_DIR$/src/res/enemy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/res/player" />
@@ -116,7 +125,7 @@
       <workItem from="1709331291652" duration="9715000" />
       <workItem from="1709713650380" duration="21461000" />
       <workItem from="1709887061372" duration="46466000" />
-      <workItem from="1710153487584" duration="554000" />
+      <workItem from="1710153487584" duration="2216000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

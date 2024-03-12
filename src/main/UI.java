@@ -193,6 +193,13 @@ public class UI {
         int slotSize = gp.tileSize + 3;
 
         for (int i = 0; i < gp.player.inventory.size(); i++) {
+
+            if(gp.player.inventory.get(i) == gp.player.currentWeapon || gp.player.inventory.get(i) == gp.player.currentRobe) {
+                g2.setColor(new Color(240,190,220));
+                g2.fillRoundRect(slotX, slotY, gp.tileSize, gp.tileSize, 10, 10);
+            }
+
+
             g2.drawImage(gp.player.inventory.get(i).front1, slotX, slotY, null);
 
             slotX += slotSize;
@@ -217,7 +224,7 @@ public class UI {
         int dFrameY = frameY + (int) frameHeight;
         int dFrameWidth = (int) frameWidth;
         int dFrameHeight = gp.tileSize * 3;
-        drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight);
+
 
         int textX = dFrameX + 20;
         int textY = dFrameY + 40;
@@ -227,6 +234,8 @@ public class UI {
         int itemIndex = findItemIndex();
 
         if (itemIndex < gp.player.inventory.size()) {
+
+            drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight);
 
             for (String line : gp.player.inventory.get(itemIndex).itemDescription.split("\n")) {
                 g2.drawString(line, textX, textY);

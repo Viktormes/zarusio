@@ -14,7 +14,7 @@ public class PlantMonster extends Entity {
 
         this.gp = gp;
 
-        type = 2;
+        type = typeEnemy;
         name = "Plant Monster";
         speed = 1;
         maxHealth = 4;

@@ -5,9 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/src/object/ObjectAxe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/ObjectPowerRobe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/object/ObjectRedPear.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/items/axe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/items/healthPotion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/items/powerRobe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/items/redPear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeBack1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeBack2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeFront1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeFront2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeLeft1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeLeft2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeRight1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/player/attackAxeRight2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectChest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectChest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultWhip.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectKey.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectPowerSocks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackBack2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackBack2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackFront2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackFront2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackLeft2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackLeft2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackRight2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/res/player/attackRight2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enemy/PlantMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/PlantMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectChest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultWhip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectPowerSocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/player/attackBack2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/player/attackBack2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/player/attackFront2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/player/attackFront2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/player/attackLeft2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/player/attackLeft2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/res/player/attackRight2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/res/player/attackRight2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,35 +83,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/viktormes/Documents/Development/Private/Zarusio/src/res/tiles&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/items",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/res/items" />
+      <recent name="$PROJECT_DIR$/src/res/player" />
       <recent name="$PROJECT_DIR$/src/res/tiles" />
       <recent name="$PROJECT_DIR$/src/res/sound" />
       <recent name="$PROJECT_DIR$/src/res/fonts" />
-      <recent name="$PROJECT_DIR$/src/res/items" />
-      <recent name="$PROJECT_DIR$/src/res/player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/res/player" />
@@ -121,7 +166,8 @@
       <workItem from="1709713650380" duration="21461000" />
       <workItem from="1709887061372" duration="46466000" />
       <workItem from="1710153487584" duration="2216000" />
-      <workItem from="1710160591310" duration="3675000" />
+      <workItem from="1710160591310" duration="16542000" />
+      <workItem from="1710270467696" duration="2167000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

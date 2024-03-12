@@ -22,6 +22,15 @@ public class Entity {
     public BufferedImage image, image2, image3;
     public String name;
     public int type;
+    public final int typePlayer = 0;
+    public final int typeNPC = 1;
+    public final int typeEnemy = 2;
+    public final int typeWhip = 3;
+    public final int typeAxe = 4;
+    public final int typeRobe = 5;
+    public final int typeConsumable = 6;
+
+
 
     public int attackValue;
     public int defenseValue;
@@ -96,6 +105,7 @@ public class Entity {
         }
     }
 
+    public void use(Entity entity) {}
     public void update() {
 
         setAction();
@@ -107,7 +117,7 @@ public class Entity {
         gp.collisionChecker.checkEntity(this, gp.enemy);
         boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
 
-        if (this.type == 2 && contactPlayer) {
+        if (this.type == typeEnemy && contactPlayer) {
             if (!gp.player.invincible) {
 
                 int damage = attack - gp.player.defense;

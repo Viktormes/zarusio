@@ -2,10 +2,10 @@ package main;
 
 import enemy.PlantMonster;
 import entity.NPC_Devil;
-import object.ObjectChest;
-import object.ObjectDoor;
-import object.ObjectKey;
+import object.ObjectAxe;
+import object.ObjectPowerRobe;
 import object.ObjectPowerSocks;
+import object.ObjectRedPear;
 
 public class AssetManager {
 
@@ -17,9 +17,34 @@ public class AssetManager {
 
     public void setObject() {
 
-        gp.itemObject[4] = new ObjectPowerSocks(gp);
-        gp.itemObject[4].worldX = 24 * gp.tileSize;
-        gp.itemObject[4].worldY = 40 * gp.tileSize;
+        int i = 0;
+        gp.itemObject[i] = new ObjectPowerSocks(gp);
+        gp.itemObject[i].worldX = 24 * gp.tileSize;
+        gp.itemObject[i].worldY = 40 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectRedPear(gp);
+        gp.itemObject[i].worldX = 49 * gp.tileSize;
+        gp.itemObject[i].worldY = 7 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectRedPear(gp);
+        gp.itemObject[i].worldX = 51 * gp.tileSize;
+        gp.itemObject[i].worldY = 7 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectRedPear(gp);
+        gp.itemObject[i].worldX = 49 * gp.tileSize;
+        gp.itemObject[i].worldY = 8 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectRedPear(gp);
+        gp.itemObject[i].worldX = 52 * gp.tileSize;
+        gp.itemObject[i].worldY = 8 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectAxe(gp);
+        gp.itemObject[i].worldX = 23 * gp.tileSize;
+        gp.itemObject[i].worldY = 36 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectPowerRobe(gp);
+        gp.itemObject[i].worldX = 23 * gp.tileSize;
+        gp.itemObject[i].worldY = 37 * gp.tileSize;
 
     }
 
@@ -48,7 +73,7 @@ public class AssetManager {
         gp.enemy[i].worldY = 40 * gp.tileSize;
         i++;
         gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 43 * gp.tileSize;
+        gp.enemy[i].worldX = 39 * gp.tileSize;
         gp.enemy[i].worldY = 10 * gp.tileSize;
         i++;
         gp.enemy[i] = new PlantMonster(gp);
@@ -56,12 +81,17 @@ public class AssetManager {
         gp.enemy[i].worldY = 39 * gp.tileSize;
         i++;
         gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 10 * gp.tileSize;
-        gp.enemy[i].worldY = 48 * gp.tileSize;
+        gp.enemy[i].worldX = 71 * gp.tileSize;
+        gp.enemy[i].worldY = 43 * gp.tileSize;
         i++;
         gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 10 * gp.tileSize;
+        gp.enemy[i].worldX = 75 * gp.tileSize;
         gp.enemy[i].worldY = 46 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 74 * gp.tileSize;
+        gp.enemy[i].worldY = 43 * gp.tileSize;
+
 
 
     }

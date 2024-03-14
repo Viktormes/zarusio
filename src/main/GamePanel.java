@@ -43,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[] itemObject = new Entity[10];
     public Entity[] npc = new Entity[10];
     public Entity[] enemy = new Entity[20];
+    public ArrayList<Entity> projectileList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
     public int gameState;
@@ -135,6 +136,17 @@ public class GamePanel extends JPanel implements Runnable {
             //pause menu
         }
 
+        for (int i = 0; i < projectileList.size(); i++) {
+            if (projectileList.get(i) != null) {
+                if(projectileList.get(i).alive){
+                    projectileList.get(i).update();
+                }
+                if(!projectileList.get(i).alive) {
+                    projectileList.remove(i);
+                }
+            }
+        }
+
     }
 
     public void paintComponent(Graphics g) {
@@ -164,6 +176,11 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             for (Entity entity : enemy) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
+                }
+            for (Entity entity : projectileList) {
                 if (entity != null) {
                     entityList.add(entity);
                 }

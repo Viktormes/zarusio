@@ -30,7 +30,7 @@ public class ObjectHealthPotion extends Entity {
         if (gp.player.currentHealth > gp.player.maxHealth) {
             gp.player.currentHealth = gp.player.maxHealth;
         }
-        gp.playSound(2);
+        gp.playSound(6);
 
     }
 }

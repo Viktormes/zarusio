@@ -1,5 +1,6 @@
 package main;
 
+import enemy.Ghost;
 import enemy.PlantMonster;
 import entity.NPC_Devil;
 import object.ObjectAxe;
@@ -91,7 +92,10 @@ public class AssetManager {
         gp.enemy[i] = new PlantMonster(gp);
         gp.enemy[i].worldX = 74 * gp.tileSize;
         gp.enemy[i].worldY = 43 * gp.tileSize;
-
+        i++;
+        gp.enemy[i] = new Ghost(gp);
+        gp.enemy[i].worldX = 72 * gp.tileSize;
+        gp.enemy[i].worldY = 43 * gp.tileSize;
 
 
     }

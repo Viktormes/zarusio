@@ -15,6 +15,7 @@ public class UI {
     Graphics2D g2;
     Font font;
     BufferedImage heartFull, heartHalf, heartEmpty;
+    ArrayList<FloatingText> floatingTexts = new ArrayList<>();
     ArrayList<String> message = new ArrayList<>();
     ArrayList<Integer> messageCounter = new ArrayList<>();
     public String currentDialog = "";
@@ -50,6 +51,10 @@ public class UI {
         messageCounter.add(0);
     }
 
+    public void addFloatingText(String text, int x, int y, Color color) {
+        floatingTexts.add(new FloatingText(text, x, y, color));
+    }
+
     public void draw(Graphics2D g2) {
         this.g2 = g2;
 
@@ -78,6 +83,10 @@ public class UI {
         if (gp.gameState == gp.characterState) {
             drawCharacterScreen();
             drawInventory();
+        }
+
+        for (FloatingText floatingText : floatingTexts) {
+            floatingText.draw(g2, font);
         }
 
     }
@@ -401,7 +410,7 @@ public class UI {
 
         drawSubWindow(x, y, width, height);
 
-        g2.setFont(g2.getFont().deriveFont(Font.ITALIC, 40));
+        g2.setFont(font.deriveFont( 40F));
         x += gp.tileSize;
         y += gp.tileSize;
 

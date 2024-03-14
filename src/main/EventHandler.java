@@ -85,6 +85,7 @@ public class EventHandler {
 
             gp.ui.currentDialog = "OUCH! You stepped on a trap!";
             gp.playSound(4);
+
             gp.player.currentHealth -= 1;
 
             canTouchEvent = false;
@@ -97,6 +98,7 @@ public class EventHandler {
                     gp.gameState = gameState;
                     gp.ui.currentDialog = "You are already at full health.";
                 } else if (gp.player.currentHealth < gp.player.maxHealth) {
+                    gp.playSound(6);
                     gp.gameState = gameState;
                     gp.ui.currentDialog = "You healed in the pool. \nHealth restored.";
                     gp.player.currentHealth = gp.player.maxHealth;

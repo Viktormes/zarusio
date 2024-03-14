@@ -56,12 +56,15 @@ public class Entity {
     public int actionLockCounter = 0;
     public int spriteCounter = 0;
     public int invincibleCounter = 0;
+    public int shotAvailableCounter = 0;
     int dyingCounter = 0;
     int hpBarCounter = 0;
 
 
     public int maxHealth;
     public int currentHealth;
+    public int maxMana;
+    public int currentMana;
     public int level;
     public int strength;
     public int dexterity;
@@ -72,6 +75,9 @@ public class Entity {
     public int gold;
     public Entity currentWeapon;
     public Entity currentRobe;
+    public Projectile projectile;
+
+    public int useCost;
 
 
     public Entity(GamePanel gp) {
@@ -273,7 +279,7 @@ public class Entity {
         }
 
         if (dyingCounter > i * 8) {
-            dying = true;
+
             alive = false;
         }
 

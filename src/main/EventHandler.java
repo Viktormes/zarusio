@@ -94,14 +94,15 @@ public class EventHandler {
         public void healingPool (int col, int row, int gameState){
 
             if (gp.keyH.enterPressed) {
-                if (gp.player.currentHealth == gp.player.maxHealth) {
+                if (gp.player.currentHealth == gp.player.maxHealth && gp.player.currentMana == gp.player.maxMana) {
                     gp.gameState = gameState;
-                    gp.ui.currentDialog = "You are already at full health.";
-                } else if (gp.player.currentHealth < gp.player.maxHealth) {
+                    gp.ui.currentDialog = "You are already at full health and mana.";
+                } else if (gp.player.currentHealth < gp.player.maxHealth || gp.player.currentMana < gp.player.maxMana) {
                     gp.playSound(6);
                     gp.gameState = gameState;
-                    gp.ui.currentDialog = "You healed in the pool. \nHealth restored.";
+                    gp.ui.currentDialog = "You healed in the pool. \nHealth restored and mana restored.";
                     gp.player.currentHealth = gp.player.maxHealth;
+                    gp.player.currentMana = gp.player.maxMana;
                 }
                 gp.assetManager.setEnemy();
             }

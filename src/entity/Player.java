@@ -61,6 +61,8 @@ public class Player extends Entity {
         level = 1;
         maxHealth = 6;
         currentHealth = maxHealth;
+        maxMana = 1;
+        currentMana = maxMana;
         strength = 1;
         dexterity = 1;
         experience = 0;
@@ -215,9 +217,13 @@ public class Player extends Entity {
                 }
             }
 
-            if(gp.keyH.projectileKeyPressed && !projectile.alive && shotAvailableCounter == 60){
+            if (gp.keyH.projectileKeyPressed && !projectile.alive
+                    && shotAvailableCounter == 60 && projectile.hasResource(this)) {
 
                 projectile.set(worldX, worldY, direction, true, this);
+
+                projectile.useResource(this);
+
 
                 gp.projectileList.add(projectile);
 
@@ -280,7 +286,6 @@ public class Player extends Entity {
 
             damageEnemy(enemyIndex, attack);
 
-
         }
         if (spriteCounter > 20) {
             spriteNumber = 1;
@@ -301,8 +306,8 @@ public class Player extends Entity {
                 if (damage < 0) {
                     damage = 0;
                 }
-                gp.ui.addFloatingText(String.valueOf(damage),screenX+40
-                        ,screenY+20, new Color(190, 8, 8));
+                gp.ui.addFloatingText(String.valueOf(damage), screenX + 40
+                        , screenY + 20, new Color(190, 8, 8));
                 currentHealth -= damage;
                 invincible = true;
             }
@@ -328,14 +333,14 @@ public class Player extends Entity {
                 int actualDamage = oldHealth - gp.enemy[i].currentHealth;
                 int enemyX = gp.enemy[i].worldX - gp.player.worldX + gp.player.screenX;
                 int enemyY = gp.enemy[i].worldY - gp.player.worldY + gp.player.screenY;
-                gp.ui.addFloatingText(String.valueOf(actualDamage), enemyX+40, enemyY+20, new Color(190, 8, 8));
+                gp.ui.addFloatingText(String.valueOf(actualDamage), enemyX + 40, enemyY + 20, new Color(190, 8, 8));
                 gp.enemy[i].invincible = true;
                 gp.enemy[i].damageReaction();
 
                 if (gp.enemy[i].currentHealth <= 0) {
                     gp.enemy[i].dying = true;
                     gp.ui.addMessage("You killed a " + gp.enemy[i].name + "!");
-                    gp.ui.addFloatingText(gp.enemy[i].experience + " EXP", screenX, screenY,Color.WHITE);
+                    gp.ui.addFloatingText(gp.enemy[i].experience + " EXP", screenX, screenY, Color.WHITE);
                     experience += gp.enemy[i].experience;
                     checkLevelUp();
                 }
@@ -394,8 +399,8 @@ public class Player extends Entity {
                     }
                     int actualHealed = currentHealth - healthBeforeHeal;
                     gp.itemObject[i] = null;
-                    gp.ui.addFloatingText(String.valueOf(actualHealed),screenX+40
-                            ,screenY+20, Color.GREEN);
+                    gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40
+                            , screenY + 20, Color.GREEN);
                 }
             } else {
                 gp.ui.addMessage("Your inventory is full!");
@@ -411,7 +416,9 @@ public class Player extends Entity {
             experience = 0;
             nextLevelExperience = getAmountExperienceToNextLevel();
             maxHealth += 2;
+            maxMana += 1;
             currentHealth = maxHealth;
+            currentMana = maxMana;
             strength++;
             dexterity++;
             attack = getAttack();
@@ -446,7 +453,7 @@ public class Player extends Entity {
                     selectedItem.use(this);
                     inventory.remove(itemIndex);
                 } else {
-                    gp.ui.addMessage("Your health is full! You don't need to use that!");
+                    gp.ui.addMessage("");
                 }
             }
         }

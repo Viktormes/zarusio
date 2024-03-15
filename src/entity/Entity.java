@@ -29,9 +29,9 @@ public class Entity {
     public final int typeAxe = 4;
     public final int typeRobe = 5;
     public final int typeConsumable = 6;
+    public final int typePickUp = 7;
 
-
-
+    public int value;
     public int attackValue;
     public int defenseValue;
     public String itemDescription = "";
@@ -124,16 +124,7 @@ public class Entity {
         boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
 
         if (this.type == typeEnemy && contactPlayer) {
-            if (!gp.player.invincible) {
-
-                int damage = attack - gp.player.defense;
-                if (damage < 0) {
-                    damage = 0;
-                }
-                gp.player.currentHealth -= damage;
-                gp.player.invincible = true;
-            }
-
+            damagePlayer(attack);
         }
 
         if (!collisionOn) {
@@ -168,6 +159,22 @@ public class Entity {
                 invincible = false;
                 invincibleCounter = 0;
             }
+        }
+
+        if (shotAvailableCounter < 60) {
+            shotAvailableCounter++;
+        }
+    }
+    public void damagePlayer(int attack){
+
+        if (!gp.player.invincible) {
+
+            int damage = attack - gp.player.defense;
+            if (damage < 0) {
+                damage = 0;
+            }
+            gp.player.currentHealth -= damage;
+            gp.player.invincible = true;
         }
     }
 

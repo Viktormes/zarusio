@@ -66,6 +66,10 @@ public class AssetManager {
         gp.enemy[i].worldY = 46 * gp.tileSize;
         i++;
         gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i].worldX = 10 * gp.tileSize;
+        gp.enemy[i].worldY = 44 * gp.tileSize;
+        i++;
+        gp.enemy[i] = new PlantMonster(gp);
         gp.enemy[i].worldX = 23 * gp.tileSize;
         gp.enemy[i].worldY = 38 * gp.tileSize;
         i++;
@@ -85,11 +89,11 @@ public class AssetManager {
         gp.enemy[i].worldX = 71 * gp.tileSize;
         gp.enemy[i].worldY = 43 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i] = new Ghost(gp);
         gp.enemy[i].worldX = 75 * gp.tileSize;
         gp.enemy[i].worldY = 46 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
+        gp.enemy[i] = new Ghost(gp);
         gp.enemy[i].worldX = 74 * gp.tileSize;
         gp.enemy[i].worldY = 43 * gp.tileSize;
         i++;

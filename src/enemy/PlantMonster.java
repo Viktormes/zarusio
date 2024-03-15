@@ -2,6 +2,7 @@ package enemy;
 
 import entity.Entity;
 import main.GamePanel;
+import object.ObjectRock;
 
 import java.util.Random;
 
@@ -22,7 +23,7 @@ public class PlantMonster extends Entity {
         attack = 3;
         defense = 0;
         experience = 3;
-
+        projectile = new ObjectRock(gp);
 
 
         getImage();
@@ -61,6 +62,13 @@ public class PlantMonster extends Entity {
                 direction = "right";
             }
             actionLockCounter = 0;
+        }
+
+        int i = new Random().nextInt(100) + 1;
+        if (i > 99 && !projectile.alive && shotAvailableCounter == 60) {
+            projectile.set(worldX, worldY, direction, true, this);
+            gp.projectileList.add(projectile);
+            shotAvailableCounter = 0;
         }
     }
     public void damageReaction() {

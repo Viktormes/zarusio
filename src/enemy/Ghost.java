@@ -17,11 +17,11 @@ public class Ghost extends Entity {
         type = typeEnemy;
         name = "Ghost";
         speed = 3;
-        maxHealth = 10;
+        maxHealth = 15;
         currentHealth = maxHealth;
-        attack = 4;
+        attack = 6;
         defense = 1;
-        experience = 5;
+        experience = 10;
 
         getImage();
 

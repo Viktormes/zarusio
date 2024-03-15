@@ -6,7 +6,7 @@ import main.GamePanel;
 public class ObjectHealthPotion extends Entity {
 
     GamePanel gp;
-    int value = 3;
+
 
     public ObjectHealthPotion(GamePanel gp) {
         super(gp);
@@ -15,6 +15,7 @@ public class ObjectHealthPotion extends Entity {
 
         type = typeConsumable;
         name = "Health Potion";
+        value = 3;
         front1 = setup("/res/items/healthPotion",gp.tileSize,gp.tileSize);
         itemDescription = "[Health Potion]\nRestores "+ value + " health.";
 

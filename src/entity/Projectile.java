@@ -2,6 +2,8 @@ package entity;
 
 import main.GamePanel;
 
+import java.awt.*;
+
 public class Projectile extends Entity {
 
     Entity user;
@@ -30,10 +32,20 @@ public class Projectile extends Entity {
                 gp.player.damageEnemy(monsterIndex, attack);
                 alive = false;
             }
-
         }
-        if (user != gp.player){
 
+        if (user != gp.player){
+            boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
+            if(!gp.player.invincible && contactPlayer){
+                gp.playSound(4);
+                int damageTaken = attack - gp.player.getDefense();
+                if (damageTaken > 0) {
+                    gp.ui.addFloatingText(String.valueOf(damageTaken), gp.player.screenX + 40
+                            , gp.player.screenY + 20, new Color(190, 8, 8));
+                }
+                damagePlayer(attack);
+                alive = false;
+            }
         }
 
 
@@ -66,5 +78,13 @@ public class Projectile extends Entity {
             spriteCounter = 0;
         }
     }
+
+    public boolean hasResource(Entity user) {
+
+        boolean hasResource = false;
+        return hasResource;
+    }
+
+    public void useResource(Entity user) {}
 }
 

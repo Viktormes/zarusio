@@ -10,7 +10,7 @@ public class Sound {
 
     Clip clip;
 
-    URL[] soundURL = new URL[30];
+    URL[] soundURL = new URL[20];
 
     public void setVolume(float volume) {
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
@@ -26,6 +26,9 @@ public class Sound {
         soundURL[4] = getClass().getResource("/res/sound/receiveDamage.wav");
         soundURL[5] = getClass().getResource("/res/sound/fanfare.wav");
         soundURL[6] = getClass().getResource("/res/sound/healingSound.wav");
+        soundURL[7] = getClass().getResource("/res/sound/whipSwoosh.wav");
+        soundURL[8] = getClass().getResource("/res/sound/axeSwoosh.wav");
+        soundURL[9] = getClass().getResource("/res/sound/coin.wav");
     }
 
     public void setFile(int i) {
@@ -45,8 +48,9 @@ public class Sound {
 
     public void play() {
 
-        clip.start();
-
+        if (clip !=null) {
+            clip.start();
+        }
     }
 
     public void loop() {

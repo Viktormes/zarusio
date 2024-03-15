@@ -1,5 +1,6 @@
 package object;
 
+import entity.Entity;
 import entity.Projectile;
 import main.GamePanel;
 
@@ -12,7 +13,7 @@ public class ObjectFrostBolt extends Projectile {
         this.gp = gp;
 
         name = "Frost Bolt";
-        speed = 10;
+        speed = 8;
         maxHealth = 80;
         currentHealth = maxHealth;
         attack = 2;
@@ -32,6 +33,21 @@ public class ObjectFrostBolt extends Projectile {
         right1 = setup("/res/spells/frostBoltRight",gp.tileSize,gp.tileSize);
         right2 = setup("/res/spells/frostBoltRight",gp.tileSize,gp.tileSize);
 
+    }
+
+    public boolean hasResource(Entity user) {
+
+        boolean hasResource = false;
+        if (user.currentMana >= useCost) {
+            hasResource = true;
+        } else {
+            hasResource = false;
+        }
+        return hasResource;
+    }
+
+    public void useResource(Entity user) {
+        user.currentMana -= useCost;
     }
 
 }

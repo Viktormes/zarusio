@@ -5,39 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectCoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectMana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectPlatinumCoin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/object/ObjectRock.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/blankMana.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/coin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/mana.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/items/platinumCoin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/projectiles/rock.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/axeSwoosh.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/coin.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/whipSwoosh.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/EventHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/EventHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy/PlantMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/PlantMonster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Projectile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectHeart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHeart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectMana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectMana.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,6 +128,7 @@
       <workItem from="1710160591310" duration="16542000" />
       <workItem from="1710270467696" duration="32175000" />
       <workItem from="1710512265076" duration="793000" />
+      <workItem from="1710513222773" duration="1657000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

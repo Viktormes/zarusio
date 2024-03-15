@@ -3,10 +3,7 @@ package main;
 import enemy.Ghost;
 import enemy.PlantMonster;
 import entity.NPC_Devil;
-import object.ObjectAxe;
-import object.ObjectPowerRobe;
-import object.ObjectPowerSocks;
-import object.ObjectRedPear;
+import object.*;
 
 public class AssetManager {
 
@@ -46,7 +43,22 @@ public class AssetManager {
         gp.itemObject[i] = new ObjectPowerRobe(gp);
         gp.itemObject[i].worldX = 23 * gp.tileSize;
         gp.itemObject[i].worldY = 37 * gp.tileSize;
-
+        i++;
+        gp.itemObject[i] = new ObjectCoin(gp);
+        gp.itemObject[i].worldX = 20 * gp.tileSize;
+        gp.itemObject[i].worldY = 37 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectPlatinumCoin(gp);
+        gp.itemObject[i].worldX = 21 * gp.tileSize;
+        gp.itemObject[i].worldY = 37 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectMana(gp);
+        gp.itemObject[i].worldX = 21 * gp.tileSize;
+        gp.itemObject[i].worldY = 38 * gp.tileSize;
+        i++;
+        gp.itemObject[i] = new ObjectHeart(gp);
+        gp.itemObject[i].worldX = 20 * gp.tileSize;
+        gp.itemObject[i].worldY = 38 * gp.tileSize;
     }
 
     public void setNPC() {

@@ -40,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread gameThread;
 
     public Player player = new Player(this, keyH);
-    public Entity[] itemObject = new Entity[10];
+    public Entity[] itemObject = new Entity[20];
     public Entity[] npc = new Entity[10];
     public Entity[] enemy = new Entity[20];
     public ArrayList<Entity> projectileList = new ArrayList<>();

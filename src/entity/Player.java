@@ -363,49 +363,58 @@ public class Player extends Entity {
 
 
         if (i != 999) {
-            String objectName = gp.itemObject[i].name;
 
-            if (inventory.size() != maxInventorySize) {
+            if(gp.itemObject[i].type == typePickUp) {
 
-                if (objectName.equals("Woodcutting Axe")) {
-                    gp.playSound(2);
-                    inventory.add(gp.itemObject[i]);
-                    gp.itemObject[i] = null;
-                    gp.ui.addMessage("You picked up the Woodcutting Axe!");
-                }
+                gp.itemObject[i].use(this);
+                gp.itemObject[i] = null;
 
-                if (objectName.equals("Power Robe")) {
-                    gp.playSound(2);
-                    inventory.add(gp.itemObject[i]);
-                    gp.itemObject[i] = null;
-                    gp.ui.addMessage("You picked up the Power Robe!");
-                }
-
-                if (objectName.equals("Super Socks")) {
-                    gp.playSound(2);
-                    speed += 10;
-                    inventory.add(gp.itemObject[i]);
-                    gp.itemObject[i] = null;
-                    gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
-
-                }
-                if (objectName.equals("Red Pear") && currentHealth != maxHealth) {
-                    Random rand = new Random();
-                    int healed = rand.nextInt(3) + 1;
-                    int healthBeforeHeal = currentHealth;
-                    currentHealth += healed;
-                    if (currentHealth > maxHealth) {
-                        currentHealth = maxHealth;
-                    }
-                    int actualHealed = currentHealth - healthBeforeHeal;
-                    gp.itemObject[i] = null;
-                    gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40
-                            , screenY + 20, Color.GREEN);
-                }
-            } else {
-                gp.ui.addMessage("Your inventory is full!");
             }
 
+            else {
+                String objectName = gp.itemObject[i].name;
+
+                if (inventory.size() != maxInventorySize) {
+
+                    if (objectName.equals("Woodcutting Axe")) {
+                        gp.playSound(2);
+                        inventory.add(gp.itemObject[i]);
+                        gp.itemObject[i] = null;
+                        gp.ui.addMessage("You picked up the Woodcutting Axe!");
+                    }
+
+                    if (objectName.equals("Power Robe")) {
+                        gp.playSound(2);
+                        inventory.add(gp.itemObject[i]);
+                        gp.itemObject[i] = null;
+                        gp.ui.addMessage("You picked up the Power Robe!");
+                    }
+
+                    if (objectName.equals("Super Socks")) {
+                        gp.playSound(2);
+                        speed += 10;
+                        inventory.add(gp.itemObject[i]);
+                        gp.itemObject[i] = null;
+                        gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
+
+                    }
+                    if (objectName.equals("Red Pear") && currentHealth != maxHealth) {
+                        Random rand = new Random();
+                        int healed = rand.nextInt(3) + 1;
+                        int healthBeforeHeal = currentHealth;
+                        currentHealth += healed;
+                        if (currentHealth > maxHealth) {
+                            currentHealth = maxHealth;
+                        }
+                        int actualHealed = currentHealth - healthBeforeHeal;
+                        gp.itemObject[i] = null;
+                        gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40
+                                , screenY + 20, Color.GREEN);
+                    }
+                } else {
+                    gp.ui.addMessage("Your inventory is full!");
+                }
+            }
         }
     }
 

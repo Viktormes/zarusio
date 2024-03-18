@@ -54,6 +54,8 @@ public class Player extends Entity {
 
         worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
+   //     worldX = gp.tileSize * 17;
+   //     worldY = gp.tileSize * 17;
         speed = 8;
         direction = "down";
 
@@ -190,10 +192,10 @@ public class Player extends Entity {
                 int objIndex = gp.collisionChecker.checkObject(this, true);
                 pickUpItem(objIndex);
 
-                int npcIndex = gp.collisionChecker.checkEntity(this, gp.npc);
+                int npcIndex = gp.collisionChecker.checkEntity(this, gp.npc[gp.currentMap]);
                 interactNPC(npcIndex);
 
-                int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
+                int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
 
                 contactEnemy(enemyIndex);
 
@@ -306,7 +308,7 @@ public class Player extends Entity {
             solidArea.width = attackArea.width;
             solidArea.height = attackArea.height;
 
-            int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
+            int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
 
             worldX = currentWorldX;
             worldY = currentWorldY;
@@ -328,10 +330,10 @@ public class Player extends Entity {
 
         if (enemyIndex != 999) {
 
-            if (!invincible && !gp.enemy[enemyIndex].dying) {
+            if (!invincible && !gp.enemy[gp.currentMap][enemyIndex].dying) {
                 gp.playSound(4);
 
-                int damage = gp.enemy[enemyIndex].attack - gp.player.defense;
+                int damage = gp.enemy[gp.currentMap][enemyIndex].attack - gp.player.defense;
                 if (damage < 0) {
                     damage = 0;
                 }
@@ -347,30 +349,30 @@ public class Player extends Entity {
     public void damageEnemy(int i, int attack) {
 
         if (i != 999) {
-            if (!gp.enemy[i].invincible) {
+            if (!gp.enemy[gp.currentMap][i].invincible) {
                 gp.playSound(3);
 
-                int damage = attack - gp.enemy[i].defense;
+                int damage = attack - gp.enemy[gp.currentMap][i].defense;
                 if (damage < 0) {
                     damage = 0;
                 }
-                int oldHealth = gp.enemy[i].currentHealth;
-                gp.enemy[i].currentHealth -= damage;
-                if (gp.enemy[i].currentHealth < 0) {
-                    gp.enemy[i].currentHealth = 0;
+                int oldHealth = gp.enemy[gp.currentMap][i].currentHealth;
+                gp.enemy[gp.currentMap][i].currentHealth -= damage;
+                if (gp.enemy[gp.currentMap][i].currentHealth < 0) {
+                    gp.enemy[gp.currentMap][i].currentHealth = 0;
                 }
-                int actualDamage = oldHealth - gp.enemy[i].currentHealth;
-                int enemyX = gp.enemy[i].worldX - gp.player.worldX + gp.player.screenX;
-                int enemyY = gp.enemy[i].worldY - gp.player.worldY + gp.player.screenY;
+                int actualDamage = oldHealth - gp.enemy[gp.currentMap][i].currentHealth;
+                int enemyX = gp.enemy[gp.currentMap][i].worldX - gp.player.worldX + gp.player.screenX;
+                int enemyY = gp.enemy[gp.currentMap][i].worldY - gp.player.worldY + gp.player.screenY;
                 gp.ui.addFloatingText(String.valueOf(actualDamage), enemyX + 40, enemyY + 20, new Color(190, 8, 8));
-                gp.enemy[i].invincible = true;
-                gp.enemy[i].damageReaction();
+                gp.enemy[gp.currentMap][i].invincible = true;
+                gp.enemy[gp.currentMap][i].damageReaction();
 
-                if (gp.enemy[i].currentHealth <= 0) {
-                    gp.enemy[i].dying = true;
-                    gp.ui.addMessage("You killed a " + gp.enemy[i].name + "!");
-                    gp.ui.addFloatingText(gp.enemy[i].experience + " EXP", screenX, screenY, Color.WHITE);
-                    experience += gp.enemy[i].experience;
+                if (gp.enemy[gp.currentMap][i].currentHealth <= 0) {
+                    gp.enemy[gp.currentMap][i].dying = true;
+                    gp.ui.addMessage("You killed a " + gp.enemy[gp.currentMap][i].name + "!");
+                    gp.ui.addFloatingText(gp.enemy[gp.currentMap][i].experience + " EXP", screenX, screenY, Color.WHITE);
+                    experience += gp.enemy[gp.currentMap][i].experience;
                     checkLevelUp();
                 }
             }
@@ -383,7 +385,7 @@ public class Player extends Entity {
         if (gp.keyH.enterPressed) {
             if (i != 999) {
                 gp.gameState = gp.dialogState;
-                gp.npc[i].speak();
+                gp.npc[gp.currentMap][i].speak();
             }
         }
     }
@@ -393,28 +395,28 @@ public class Player extends Entity {
 
         if (i != 999) {
 
-            if(gp.itemObject[i].type == typePickUp) {
+            if(gp.itemObject[gp.currentMap][i].type == typePickUp) {
 
-                gp.itemObject[i].use(this);
-                gp.itemObject[i] = null;
+                gp.itemObject[gp.currentMap][i].use(this);
+                gp.itemObject[gp.currentMap][i] = null;
 
             }
 
             else {
-                String objectName = gp.itemObject[i].name;
+                String objectName = gp.itemObject[gp.currentMap][i].name;
 
                 if (inventory.size() != maxInventorySize) {
 
                     if (objectName.equals("Woodcutting Axe")) {
                         gp.playSound(2);
-                        inventory.add(gp.itemObject[i]);
+                        inventory.add(gp.itemObject[gp.currentMap][i]);
                         gp.itemObject[i] = null;
                         gp.ui.addMessage("You picked up the Woodcutting Axe!");
                     }
 
                     if (objectName.equals("Power Robe")) {
                         gp.playSound(2);
-                        inventory.add(gp.itemObject[i]);
+                        inventory.add(gp.itemObject[gp.currentMap][i]);
                         gp.itemObject[i] = null;
                         gp.ui.addMessage("You picked up the Power Robe!");
                     }
@@ -422,7 +424,7 @@ public class Player extends Entity {
                     if (objectName.equals("Super Socks")) {
                         gp.playSound(2);
                         speed += 10;
-                        inventory.add(gp.itemObject[i]);
+                        inventory.add(gp.itemObject[gp.currentMap][i]);
                         gp.itemObject[i] = null;
                         gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
 

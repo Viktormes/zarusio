@@ -116,10 +116,10 @@ public class Entity {
     public void dropItem(Entity droppedItem) {
 
         for (int i = 0; i < gp.itemObject.length; i++) {
-            if (gp.itemObject[i] == null) {
-                gp.itemObject[i] = droppedItem;
-                gp.itemObject[i].worldX = worldX;
-                gp.itemObject[i].worldY = worldY;
+            if (gp.itemObject[gp.currentMap][i] == null) {
+                gp.itemObject[gp.currentMap][i] = droppedItem;
+                gp.itemObject[gp.currentMap][i].worldX = worldX;
+                gp.itemObject[gp.currentMap][i].worldY = worldY;
                 break;
             }
         }
@@ -163,8 +163,8 @@ public class Entity {
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
         gp.collisionChecker.checkObject(this, false);
-        gp.collisionChecker.checkEntity(this, gp.npc);
-        gp.collisionChecker.checkEntity(this, gp.enemy);
+        gp.collisionChecker.checkEntity(this, gp.npc[gp.currentMap]);
+        gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
         boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
 
         if (this.type == typeEnemy && contactPlayer) {

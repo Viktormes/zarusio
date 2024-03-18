@@ -27,10 +27,10 @@ public class Projectile extends Entity {
 
 
         if (user == gp.player) {
-            int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
+            int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
             if(monsterIndex != 999) {
                 gp.player.damageEnemy(monsterIndex, attack);
-                generateParticle(user.projectile, gp.enemy[monsterIndex]);
+                generateParticle(user.projectile, gp.enemy[gp.currentMap][monsterIndex]);
                 alive = false;
             }
         }

@@ -5,41 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/entity/Particle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Config.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/cursor.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/sound/gameOver.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/holeMap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/fall.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/teleport.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/darkness.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/dirtTile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/hole.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/tiles/portal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/CollisionChecker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/CollisionChecker.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectHeart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectHeart.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/Ghost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemy/PlantMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/PlantMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Projectile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CollisionChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CollisionChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EventHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectHeart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHeart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectMana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectMana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectRock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldMap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,10 +90,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/res/sound" />
+      <recent name="$PROJECT_DIR$/src/res/tiles" />
       <recent name="$PROJECT_DIR$/src/res/items" />
       <recent name="$PROJECT_DIR$/src/res/projectiles" />
       <recent name="$PROJECT_DIR$/src/res/enemy" />
-      <recent name="$PROJECT_DIR$/src/res/spells" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/res/player" />
@@ -157,7 +152,8 @@
       <workItem from="1710270467696" duration="32175000" />
       <workItem from="1710512265076" duration="793000" />
       <workItem from="1710513222773" duration="1809000" />
-      <workItem from="1710530509585" duration="26714000" />
+      <workItem from="1710530509585" duration="30615000" />
+      <workItem from="1710769406110" duration="4917000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

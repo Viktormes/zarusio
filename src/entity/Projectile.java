@@ -30,6 +30,7 @@ public class Projectile extends Entity {
             int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
             if(monsterIndex != 999) {
                 gp.player.damageEnemy(monsterIndex, attack);
+                generateParticle(user.projectile, gp.enemy[monsterIndex]);
                 alive = false;
             }
         }
@@ -43,6 +44,7 @@ public class Projectile extends Entity {
                     gp.ui.addFloatingText(String.valueOf(damageTaken), gp.player.screenX + 40
                             , gp.player.screenY + 20, new Color(190, 8, 8));
                 }
+                generateParticle(user.projectile, gp.player);
                 damagePlayer(attack);
                 alive = false;
             }

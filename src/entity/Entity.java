@@ -112,6 +112,50 @@ public class Entity {
     }
 
     public void use(Entity entity) {}
+    public void checkDrop() {}
+    public void dropItem(Entity droppedItem) {
+
+        for (int i = 0; i < gp.itemObject.length; i++) {
+            if (gp.itemObject[i] == null) {
+                gp.itemObject[i] = droppedItem;
+                gp.itemObject[i].worldX = worldX;
+                gp.itemObject[i].worldY = worldY;
+                break;
+            }
+        }
+    }
+    public Color getParticleColor() {
+        Color color = null;
+        return color;
+    }
+    public int getParticleSize() {
+        int size = 0;
+        return size;
+    }
+    public int getParticleSpeed() {
+        int speed = 0;
+        return speed;
+    }
+    public int getParticleMaxHealth() {
+        int maxHealth = 0;
+        return maxHealth;
+    }
+    public void generateParticle(Entity generator, Entity target) {
+
+        Color color = generator.getParticleColor();
+        int size = generator.getParticleSize();
+        int speed = generator.getParticleSpeed();
+        int maxHealth = generator.getParticleMaxHealth();
+
+        Particle p1 = new Particle(gp, target, color, size, speed, maxHealth, -2, -1);
+        Particle p2 = new Particle(gp, target, color, size, speed, maxHealth, 2, -1);
+        Particle p3 = new Particle(gp, target, color, size, speed, maxHealth, -2, 1);
+        Particle p4 = new Particle(gp, target, color, size, speed, maxHealth, 2, 1);
+        gp.particleList.add(p1);
+        gp.particleList.add(p2);
+        gp.particleList.add(p3);
+        gp.particleList.add(p4);
+    }
     public void update() {
 
         setAction();
@@ -177,6 +221,8 @@ public class Entity {
             gp.player.invincible = true;
         }
     }
+
+
 
     public void draw(Graphics2D g2) {
 

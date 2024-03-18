@@ -6,6 +6,7 @@ import tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -15,13 +16,22 @@ public class GamePanel extends JPanel implements Runnable {
     final int scale = 6;
 
     public int tileSize = originalTileSize * scale;
-    public int maxScreenCol = 16;
+    public int maxScreenCol = 20;
     public int maxScreenRow = 12;
     public int screenWidth = tileSize * maxScreenCol;
     public int screenHeight = tileSize * maxScreenRow;
 
     public final int maxWorldCol = 100;
     public final int maxWorldRow = 100;
+
+
+    int screenWidth2 = screenWidth;
+    int screenHeight2 = screenHeight;
+    BufferedImage tempScreen;
+    Graphics2D g2;
+    public boolean fullScreenOn = false;
+
+
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
@@ -29,14 +39,15 @@ public class GamePanel extends JPanel implements Runnable {
 
     public TileManager tm = new TileManager(this);
     public KeyHandler keyH = new KeyHandler(this);
-    Sound music = new Sound();
-    Sound soundEffect = new Sound();
+    public Sound music = new Sound();
+    public Sound soundEffect = new Sound();
 
     public CollisionChecker collisionChecker = new CollisionChecker(this);
     public AssetManager assetManager = new AssetManager(this);
     public UI ui = new UI(this);
     public EventHandler eventHandler = new EventHandler(this);
 
+    Config config = new Config(this);
     Thread gameThread;
 
     public Player player = new Player(this, keyH);
@@ -44,6 +55,7 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[] npc = new Entity[10];
     public Entity[] enemy = new Entity[20];
     public ArrayList<Entity> projectileList = new ArrayList<>();
+    public ArrayList<Entity> particleList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
     public int gameState;
@@ -52,6 +64,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int dialogState = 3;
     public final int characterState = 4;
+    public final int optionsState = 5;
+    public final int gameOverState = 6;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -66,10 +80,47 @@ public class GamePanel extends JPanel implements Runnable {
         assetManager.setObject();
         assetManager.setNPC();
         assetManager.setEnemy();
-        //playMusic(1);
         gameState = titleState;
+
+        tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
+        g2 = (Graphics2D) tempScreen.getGraphics();
+
+
+        if(fullScreenOn) {
+            setFullScreen();
+        }
+
     }
 
+    public void retry () {
+
+        player.setDefaultPositions();
+        player.restoreLifeAndMana();
+        assetManager.setNPC();
+        assetManager.setEnemy();
+    }
+
+    public void restart() {
+
+        player.setDefaultValues();
+        player.setItems();
+        assetManager.setObject();
+        assetManager.setNPC();
+        assetManager.setEnemy();
+
+    }
+    public void setFullScreen() {
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+        gd.setFullScreenWindow(Main.window);
+
+        screenWidth2 = Main.window.getWidth();
+        screenHeight2 = Main.window.getHeight();
+
+
+
+    }
     public void startGameThread() {
 
         gameThread = new Thread(this);
@@ -80,7 +131,7 @@ public class GamePanel extends JPanel implements Runnable {
     @Override
     public void run() {
 
-        double drawInterval = 1000000000 / FPS;
+        double drawInterval = (double) 1000000000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
@@ -97,7 +148,8 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 update();
-                repaint();
+                drawToTempScreen();
+                drawToScreen();
                 delta--;
                 drawCount++;
             }
@@ -127,6 +179,7 @@ public class GamePanel extends JPanel implements Runnable {
                         enemy[i].update();
                     }
                     if(!enemy[i].alive) {
+                        enemy[i].checkDrop();
                         enemy[i] = null;
                     }
                 }
@@ -147,11 +200,20 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
+        for (int i = 0; i < particleList.size(); i++) {
+            if (particleList.get(i) != null) {
+                if(particleList.get(i).alive){
+                    particleList.get(i).update();
+                }
+                if(!particleList.get(i).alive) {
+                    particleList.remove(i);
+                }
+            }
+        }
+
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
+    public void drawToTempScreen() {
 
         long drawStartTime = 0;
         if (keyH.tPressed) {
@@ -179,8 +241,13 @@ public class GamePanel extends JPanel implements Runnable {
                 if (entity != null) {
                     entityList.add(entity);
                 }
-                }
+            }
             for (Entity entity : projectileList) {
+                if (entity != null) {
+                    entityList.add(entity);
+                }
+            }
+            for (Entity entity : particleList) {
                 if (entity != null) {
                     entityList.add(entity);
                 }
@@ -212,14 +279,18 @@ public class GamePanel extends JPanel implements Runnable {
             System.out.println("Draw Time: " + passed);
         }
 
-        g2.dispose();
-
     }
 
+    public void drawToScreen(){
+
+        Graphics g = getGraphics();
+        g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+        g.dispose();
+
+    }
     public void playMusic(int i) {
 
         music.setFile(i);
-        music.setVolume(-20.0f);
         music.play();
         music.loop();
     }
@@ -232,7 +303,6 @@ public class GamePanel extends JPanel implements Runnable {
     public void playSound(int i) {
 
         soundEffect.setFile(i);
-        soundEffect.setVolume(-20.0f);
         soundEffect.play();
     }
 }

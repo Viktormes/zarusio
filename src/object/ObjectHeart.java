@@ -18,19 +18,16 @@ public class ObjectHeart extends Entity {
         type = typePickUp;
         name = "heart";
         value = 2;
-        front1 = setup("/res/items/fullHeart",gp.tileSize,gp.tileSize);
-        image = setup("/res/items/fullHeart",gp.tileSize,gp.tileSize);
-        image2 = setup("/res/items/halfHeart",gp.tileSize,gp.tileSize);
-        image3 = setup("/res/items/emptyHeart",gp.tileSize,gp.tileSize);
+        front1 = setup("/res/items/fullHeart", gp.tileSize, gp.tileSize);
+        image = setup("/res/items/fullHeart", gp.tileSize, gp.tileSize);
+        image2 = setup("/res/items/halfHeart", gp.tileSize, gp.tileSize);
+        image3 = setup("/res/items/emptyHeart", gp.tileSize, gp.tileSize);
     }
 
     public void use(Entity entity) {
 
-        gp.ui.addMessage("Life +" + value);
+        gp.ui.addFloatingText(String.valueOf(value), gp.player.screenX + 40, gp.player.screenY + 20, Color.GREEN);
         entity.currentHealth += value;
-        if(entity.currentHealth > entity.maxHealth){
-            entity.currentHealth = entity.maxHealth;
-        }
 
     }
 }

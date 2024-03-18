@@ -5,13 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entity/Particle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/cursor.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/res/sound/gameOver.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/enemy/PlantMonster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Sound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectHeart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectHeart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enemy/Ghost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/Ghost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/enemy/PlantMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemy/PlantMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Projectile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/worldmap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHealthPotion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/object/ObjectHeart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectHeart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/object/ObjectMana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectMana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/object/ObjectRock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectRock.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,32 +70,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/viktormes/Documents/Development/Private/Zarusio/src/res/items&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/viktormes/Documents/Development/Private/Zarusio/src/res/sound",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/res/items" />
       <recent name="$PROJECT_DIR$/src/res/sound" />
+      <recent name="$PROJECT_DIR$/src/res/items" />
       <recent name="$PROJECT_DIR$/src/res/projectiles" />
       <recent name="$PROJECT_DIR$/src/res/enemy" />
       <recent name="$PROJECT_DIR$/src/res/spells" />
@@ -128,7 +156,8 @@
       <workItem from="1710160591310" duration="16542000" />
       <workItem from="1710270467696" duration="32175000" />
       <workItem from="1710512265076" duration="793000" />
-      <workItem from="1710513222773" duration="1657000" />
+      <workItem from="1710513222773" duration="1809000" />
+      <workItem from="1710530509585" duration="26714000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

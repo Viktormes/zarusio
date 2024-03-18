@@ -4,6 +4,8 @@ import entity.Entity;
 import entity.Projectile;
 import main.GamePanel;
 
+import java.awt.*;
+
 public class ObjectFrostBolt extends Projectile {
 
     GamePanel gp;
@@ -50,4 +52,20 @@ public class ObjectFrostBolt extends Projectile {
         user.currentMana -= useCost;
     }
 
+    public Color getParticleColor() {
+        Color color = Color.CYAN;
+        return color;
+    }
+    public int getParticleSize() {
+        int size = 12;
+        return size;
+    }
+    public int getParticleSpeed() {
+        int speed = 1;
+        return speed;
+    }
+    public int getParticleMaxHealth() {
+        int maxHealth = 20;
+        return maxHealth;
+    }
 }

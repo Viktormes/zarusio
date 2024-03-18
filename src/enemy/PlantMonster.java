@@ -2,6 +2,9 @@ package enemy;
 
 import entity.Entity;
 import main.GamePanel;
+import object.ObjectCoin;
+import object.ObjectHeart;
+import object.ObjectMana;
 import object.ObjectRock;
 
 import java.util.Random;
@@ -75,6 +78,21 @@ public class PlantMonster extends Entity {
 
         actionLockCounter = 0;
         direction = gp.player.direction;
+        }
+
+        public void checkDrop() {
+            Random random = new Random();
+            int i = random.nextInt(100) + 1;
+
+            if (i < 50) {
+                dropItem(new ObjectCoin(gp));
+            }
+            if (i >= 50 && i < 75) {
+                dropItem(new ObjectHeart(gp));
+            }
+            if (i >= 75 && i < 100) {
+                dropItem(new ObjectMana(gp));
+            }
         }
     }
 

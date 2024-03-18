@@ -52,7 +52,7 @@ public class Player extends Entity {
 
     public void setDefaultValues() {
 
-        worldX = gp.tileSize * 21;
+        worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
         speed = 8;
         direction = "down";
@@ -75,10 +75,25 @@ public class Player extends Entity {
         defense = getDefense();
     }
 
+    public void setDefaultPositions() {
+
+        worldX = gp.tileSize * 22;
+        worldY = gp.tileSize * 23;
+        direction = "down";
+
+    }
+
+    public void restoreLifeAndMana() {
+        currentHealth = maxHealth;
+        currentMana = maxMana;
+        invincible = false;
+    }
+
     public void setItems() {
+
+        inventory.clear();
         inventory.add(currentWeapon);
         inventory.add(currentRobe);
-        inventory.add(new ObjectKey(gp));
         inventory.add(new ObjectKey(gp));
         inventory.add(new ObjectHealthPotion(gp));
 
@@ -240,6 +255,20 @@ public class Player extends Entity {
             }
             if (shotAvailableCounter < 60) {
                 shotAvailableCounter++;
+            }
+
+            if(currentHealth > maxHealth){
+                currentHealth = maxHealth;
+            }
+            if(currentMana > maxMana){
+                currentMana = maxMana;
+            }
+
+            if(currentHealth <= 0){
+                gp.gameState = gp.gameOverState;
+                gp.ui.commandNum = -1;
+                gp.stopMusic();
+                gp.playSound(11);
             }
         }
 

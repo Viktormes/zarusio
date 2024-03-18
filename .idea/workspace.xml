@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/AssetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/AssetManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/map/worldMap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldMap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
       <workItem from="1710512265076" duration="793000" />
       <workItem from="1710513222773" duration="1809000" />
       <workItem from="1710530509585" duration="30615000" />
-      <workItem from="1710769406110" duration="15475000" />
+      <workItem from="1710769406110" duration="15810000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

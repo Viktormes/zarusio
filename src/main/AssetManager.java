@@ -38,26 +38,6 @@ public class AssetManager {
         gp.itemObject[mapNum][i].worldX = 52 * gp.tileSize;
         gp.itemObject[mapNum][i].worldY = 8 * gp.tileSize;
         i++;
-        gp.itemObject[mapNum][i] = new ObjectAxe(gp);
-        gp.itemObject[mapNum][i].worldX = 23 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 36 * gp.tileSize;
-        i++;
-        gp.itemObject[mapNum][i] = new ObjectPowerRobe(gp);
-        gp.itemObject[mapNum][i].worldX = 23 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 37 * gp.tileSize;
-        i++;
-        gp.itemObject[mapNum][i] = new ObjectCoin(gp);
-        gp.itemObject[mapNum][i].worldX = 20 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 37 * gp.tileSize;
-        i++;
-        gp.itemObject[mapNum][i] = new ObjectPlatinumCoin(gp);
-        gp.itemObject[mapNum][i].worldX = 21 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 37 * gp.tileSize;
-        i++;
-        gp.itemObject[mapNum][i] = new ObjectMana(gp);
-        gp.itemObject[mapNum][i].worldX = 21 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 38 * gp.tileSize;
-        i++;
         gp.itemObject[mapNum][i] = new ObjectHeart(gp);
         gp.itemObject[mapNum][i].worldX = 20 * gp.tileSize;
         gp.itemObject[mapNum][i].worldY = 38 * gp.tileSize;
@@ -85,7 +65,7 @@ public class AssetManager {
 
     public void setEnemy() {
 
-        int mapNum = gp.currentMap;
+        int mapNum = 0;
         int i = 0;
 
         gp.enemy[mapNum][i] = new PlantMonster(gp);

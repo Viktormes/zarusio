@@ -68,6 +68,8 @@ public class GamePanel extends JPanel implements Runnable {
     public final int characterState = 4;
     public final int optionsState = 5;
     public final int gameOverState = 6;
+    public final int transitionState = 7;
+    public final int tradeState = 8;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -232,19 +234,19 @@ public class GamePanel extends JPanel implements Runnable {
             if (player != null) {
                 entityList.add(player);
             }
-            for (int i = 0; i < npc.length; i++) {
-                if (npc[i] != null && npc[i][currentMap] != null) {
-                    entityList.add(npc[i][currentMap]);
+            for (int i = 0; i < npc[1].length; i++) {
+                if (npc[i] != null && npc[currentMap][i] != null) {
+                    entityList.add(npc[currentMap][i]);
                 }
             }
-            for (int i = 0; i < itemObject.length; i++) {
-                if (itemObject[i] != null && itemObject[i][currentMap] != null) {
-                    entityList.add(itemObject[i][currentMap]);
+            for (int i = 0; i < itemObject[1].length; i++) {
+                if (itemObject[currentMap][i] != null && itemObject[currentMap][i] != null) {
+                    entityList.add(itemObject[currentMap][i]);
                 }
             }
-            for (int i = 0; i < enemy.length; i++) {
-                if (enemy[i] != null && enemy[i][currentMap] != null) {
-                    entityList.add(enemy[i][currentMap]);
+            for (int i = 0; i < enemy[1].length; i++) {
+                if (enemy[currentMap][i] != null && enemy[currentMap][i] != null) {
+                    entityList.add(enemy[currentMap][i]);
                 }
             }
             for (Entity entity : projectileList) {

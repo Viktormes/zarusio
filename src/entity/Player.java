@@ -6,7 +6,6 @@ import object.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Player extends Entity {
@@ -19,8 +18,7 @@ public class Player extends Entity {
     private int attackCoolDown = 0;
     private final int attackCoolDownPeriod = 22;
 
-    public ArrayList<Entity> inventory = new ArrayList<>();
-    public final int maxInventorySize = 20;
+
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -54,8 +52,9 @@ public class Player extends Entity {
 
         worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
-   //     worldX = gp.tileSize * 17;
-   //     worldY = gp.tileSize * 17;
+      // worldX = gp.tileSize * 17;
+       // worldY = gp.tileSize * 17;
+       // gp.currentMap = 1;
         speed = 8;
         direction = "down";
 
@@ -192,10 +191,10 @@ public class Player extends Entity {
                 int objIndex = gp.collisionChecker.checkObject(this, true);
                 pickUpItem(objIndex);
 
-                int npcIndex = gp.collisionChecker.checkEntity(this, gp.npc[gp.currentMap]);
+                int npcIndex = gp.collisionChecker.checkEntity(this, gp.npc);
                 interactNPC(npcIndex);
 
-                int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
+                int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
 
                 contactEnemy(enemyIndex);
 
@@ -308,7 +307,7 @@ public class Player extends Entity {
             solidArea.width = attackArea.width;
             solidArea.height = attackArea.height;
 
-            int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
+            int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
 
             worldX = currentWorldX;
             worldY = currentWorldY;
@@ -410,14 +409,14 @@ public class Player extends Entity {
                     if (objectName.equals("Woodcutting Axe")) {
                         gp.playSound(2);
                         inventory.add(gp.itemObject[gp.currentMap][i]);
-                        gp.itemObject[i] = null;
+                        gp.itemObject[gp.currentMap][i] = null;
                         gp.ui.addMessage("You picked up the Woodcutting Axe!");
                     }
 
                     if (objectName.equals("Power Robe")) {
                         gp.playSound(2);
                         inventory.add(gp.itemObject[gp.currentMap][i]);
-                        gp.itemObject[i] = null;
+                        gp.itemObject[gp.currentMap][i] = null;
                         gp.ui.addMessage("You picked up the Power Robe!");
                     }
 
@@ -425,7 +424,7 @@ public class Player extends Entity {
                         gp.playSound(2);
                         speed += 10;
                         inventory.add(gp.itemObject[gp.currentMap][i]);
-                        gp.itemObject[i] = null;
+                        gp.itemObject[gp.currentMap][i] = null;
                         gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
 
                     }
@@ -438,7 +437,7 @@ public class Player extends Entity {
                             currentHealth = maxHealth;
                         }
                         int actualHealed = currentHealth - healthBeforeHeal;
-                        gp.itemObject[i] = null;
+                        gp.itemObject[gp.currentMap][i] = null;
                         gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40
                                 , screenY + 20, Color.GREEN);
                     }
@@ -472,7 +471,7 @@ public class Player extends Entity {
 
     public void selectItem() {
 
-        int itemIndex = gp.ui.findItemIndex();
+        int itemIndex = gp.ui.findItemIndex(gp.ui.playerSlotCol,gp.ui.playerSlotRow);
 
         if (itemIndex < inventory.size()) {
 

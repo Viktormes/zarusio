@@ -20,6 +20,7 @@ public class ObjectHealthPotion extends Entity {
         value = 3;
         front1 = setup("/res/items/healthPotion", gp.tileSize, gp.tileSize);
         itemDescription = "[Health Potion]\nRestores " + value + " health.";
+        price = 30;
 
     }
 

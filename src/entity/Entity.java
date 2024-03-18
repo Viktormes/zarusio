@@ -6,6 +6,7 @@ import main.UtilityTool;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Entity {
@@ -31,10 +32,14 @@ public class Entity {
     public final int typeConsumable = 6;
     public final int typePickUp = 7;
 
+
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 20;
     public int value;
     public int attackValue;
     public int defenseValue;
     public String itemDescription = "";
+    public int price;
 
     public int spriteNumber = 1;
     String[] dialogues = new String[20];
@@ -115,7 +120,7 @@ public class Entity {
     public void checkDrop() {}
     public void dropItem(Entity droppedItem) {
 
-        for (int i = 0; i < gp.itemObject.length; i++) {
+        for (int i = 0; i < gp.itemObject[1].length; i++) {
             if (gp.itemObject[gp.currentMap][i] == null) {
                 gp.itemObject[gp.currentMap][i] = droppedItem;
                 gp.itemObject[gp.currentMap][i].worldX = worldX;
@@ -163,8 +168,8 @@ public class Entity {
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
         gp.collisionChecker.checkObject(this, false);
-        gp.collisionChecker.checkEntity(this, gp.npc[gp.currentMap]);
-        gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
+        gp.collisionChecker.checkEntity(this, gp.npc);
+        gp.collisionChecker.checkEntity(this, gp.enemy);
         boolean contactPlayer = gp.collisionChecker.checkPlayer(this);
 
         if (this.type == typeEnemy && contactPlayer) {
@@ -188,7 +193,7 @@ public class Entity {
             }
         }
         spriteCounter++;
-        if (spriteCounter > 12) {
+        if (spriteCounter > 24) {
             if (spriteNumber == 1) {
                 spriteNumber = 2;
             } else if (spriteNumber == 2) {

@@ -12,5 +12,6 @@ public class ObjectPowerRobe extends Entity {
         front1 = setup("/res/items/powerRobe", gp.tileSize, gp.tileSize);
         defenseValue = 2;
         itemDescription = "[Power Robe]\nA robe. It's powerful.";
+        price = 50;
     }
 }

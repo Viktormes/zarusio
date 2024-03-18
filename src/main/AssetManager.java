@@ -2,7 +2,8 @@ package main;
 
 import enemy.Ghost;
 import enemy.PlantMonster;
-import entity.NPC_Devil;
+import entity.npcDevil;
+import entity.npcMerchant;
 import object.*;
 
 public class AssetManager {
@@ -67,13 +68,14 @@ public class AssetManager {
         int mapNum = gp.currentMap;
         int i = 0;
 
-        gp.npc[mapNum][i] = new NPC_Devil(gp);
+        gp.npc[mapNum][i] = new npcDevil(gp);
         gp.npc[mapNum][i].worldX = 23 * gp.tileSize;
         gp.npc[mapNum][i].worldY = 20 * gp.tileSize;
         i++;
 
         mapNum = 1;
-        gp.npc[mapNum][i] = new NPC_Devil(gp);
+        i = 0;
+        gp.npc[mapNum][i] = new npcMerchant(gp);
         gp.npc[mapNum][i].worldX = 15 * gp.tileSize;
         gp.npc[mapNum][i].worldY = 17 * gp.tileSize;
         i++;

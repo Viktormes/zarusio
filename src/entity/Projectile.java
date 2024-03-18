@@ -27,7 +27,7 @@ public class Projectile extends Entity {
 
 
         if (user == gp.player) {
-            int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy[gp.currentMap]);
+            int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
             if(monsterIndex != 999) {
                 gp.player.damageEnemy(monsterIndex, attack);
                 generateParticle(user.projectile, gp.enemy[gp.currentMap][monsterIndex]);

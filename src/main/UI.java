@@ -103,6 +103,7 @@ public class UI {
         }
         if (gp.gameState == gp.gameOverState) {
             drawGameOverScreen();
+            gp.player.checkLevelDown();
         }
         if (gp.gameState == gp.transitionState) {
             drawTransition();

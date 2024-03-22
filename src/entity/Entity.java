@@ -56,7 +56,7 @@ public class Entity {
     public boolean alive = true;
     public boolean dying = false;
     boolean hpBarOn = false;
-
+    public boolean onPath = false;
 
     public int actionLockCounter = 0;
     public int spriteCounter = 0;
@@ -89,9 +89,11 @@ public class Entity {
         this.gp = gp;
     }
 
-    public void setAction() {}
+    public void setAction() {
+    }
 
-    public void damageReaction() {}
+    public void damageReaction() {
+    }
 
     public void speak() {
         if (dialogues[dialogIndex] == null) {
@@ -116,8 +118,12 @@ public class Entity {
         }
     }
 
-    public void use(Entity entity) {}
-    public void checkDrop() {}
+    public void use(Entity entity) {
+    }
+
+    public void checkDrop() {
+    }
+
     public void dropItem(Entity droppedItem) {
 
         for (int i = 0; i < gp.itemObject[1].length; i++) {
@@ -129,22 +135,27 @@ public class Entity {
             }
         }
     }
+
     public Color getParticleColor() {
         Color color = null;
         return color;
     }
+
     public int getParticleSize() {
         int size = 0;
         return size;
     }
+
     public int getParticleSpeed() {
         int speed = 0;
         return speed;
     }
+
     public int getParticleMaxHealth() {
         int maxHealth = 0;
         return maxHealth;
     }
+
     public void generateParticle(Entity generator, Entity target) {
 
         Color color = generator.getParticleColor();
@@ -161,9 +172,8 @@ public class Entity {
         gp.particleList.add(p3);
         gp.particleList.add(p4);
     }
-    public void update() {
 
-        setAction();
+    public void checkCollision() {
 
         collisionOn = false;
         gp.collisionChecker.checkTile(this);
@@ -175,6 +185,14 @@ public class Entity {
         if (this.type == typeEnemy && contactPlayer) {
             damagePlayer(attack);
         }
+
+    }
+
+    public void update() {
+
+        setAction();
+        checkCollision();
+
 
         if (!collisionOn) {
             switch (direction) {
@@ -214,7 +232,8 @@ public class Entity {
             shotAvailableCounter++;
         }
     }
-    public void damagePlayer(int attack){
+
+    public void damagePlayer(int attack) {
 
         if (!gp.player.invincible) {
 
@@ -226,7 +245,6 @@ public class Entity {
             gp.player.invincible = true;
         }
     }
-
 
 
     public void draw(Graphics2D g2) {
@@ -359,5 +377,70 @@ public class Entity {
             e.printStackTrace();
         }
         return image;
+    }
+
+    public void searchPath(int goalCol, int goalRow) {
+
+        int startCol = (worldX + solidArea.x) / gp.tileSize;
+        int startRow = (worldY + solidArea.y) / gp.tileSize;
+
+        gp.pathFinder.setNodes(startCol, startRow, goalCol, goalRow);
+
+        if (gp.pathFinder.search()) {
+
+            if (!gp.pathFinder.pathList.isEmpty()) {
+                int nextX = gp.pathFinder.pathList.get(0).col * gp.tileSize;
+                int nextY = gp.pathFinder.pathList.get(0).row * gp.tileSize;
+
+                int entityLeftX = worldX + solidArea.x;
+                int entityRightX = worldX + solidArea.x + solidArea.width;
+                int entityTopY = worldY + solidArea.y;
+                int entityBottomY = worldY + solidArea.y + solidArea.height;
+
+                if (entityTopY > nextY && entityLeftX >= nextX && entityRightX < nextX + gp.tileSize) {
+                    direction = "up";
+                } else if (entityBottomY < nextY && entityLeftX >= nextX && entityRightX < nextX + gp.tileSize) {
+                    direction = "down";
+                } else if (entityTopY >= nextY && entityBottomY <= nextY + gp.tileSize) {
+                    if (entityLeftX > nextX) {
+                        direction = "left";
+                    }
+                    if (entityRightX < nextX) {
+                        direction = "right";
+                    }
+                } else if (entityTopY > nextY && entityLeftX > nextX) {
+
+                    direction = "up";
+                    checkCollision();
+                    if (collisionOn) {
+                        direction = "left";
+                    }
+                } else if (entityTopY > nextY && entityRightX < nextX + gp.tileSize) {
+                    direction = "up";
+                    checkCollision();
+                    if (collisionOn) {
+                        direction = "right";
+                    }
+                } else if (entityTopY < nextY && entityLeftX > nextX) {
+                    direction = "down";
+                    checkCollision();
+                    if (collisionOn) {
+                        direction = "left";
+                    }
+                } else if (entityTopY < nextY && entityRightX < nextX) {
+                    direction = "down";
+                    checkCollision();
+                    if (collisionOn) {
+                        direction = "right";
+                    }
+                }
+            }
+
+            int nextCol = gp.pathFinder.pathList.get(0).col;
+            int nextRow = gp.pathFinder.pathList.get(0).row;
+            if (nextCol == goalCol && nextRow == goalRow) {
+                onPath = false;
+            }
+        }
     }
 }

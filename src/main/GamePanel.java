@@ -1,5 +1,6 @@
 package main;
 
+import ai.PathFinder;
 import entity.Entity;
 import entity.Player;
 import tile.TileManager;
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
     public UI ui = new UI(this);
     public EventHandler eventHandler = new EventHandler(this);
 
+    public PathFinder pathFinder = new PathFinder(this);
     Config config = new Config(this);
     Thread gameThread;
 
@@ -283,7 +285,9 @@ public class GamePanel extends JPanel implements Runnable {
             long passed = drawEndTime - drawStartTime;
             g2.setColor(Color.WHITE);
             g2.drawString("Draw Time: " + passed, 10, 400);
-            g2.drawString("Player X: " + player.worldX / tileSize + ", Player Y: " + player.worldY / tileSize, 10, 420);
+            int col = player.worldX / tileSize;
+            int row = player.worldY / tileSize;
+            g2.drawString("Player X: " + col + ", Player Y: " + row, 10, 420);
             System.out.println("Draw Time: " + passed);
         }
 

@@ -19,7 +19,6 @@ public class Player extends Entity {
     private final int attackCoolDownPeriod = 22;
 
 
-
     public Player(GamePanel gp, KeyHandler keyH) {
 
         super(gp);
@@ -52,12 +51,11 @@ public class Player extends Entity {
 
         worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
-      // worldX = gp.tileSize * 17;
-       // worldY = gp.tileSize * 17;
-       // gp.currentMap = 1;
+        // worldX = gp.tileSize * 17;
+        // worldY = gp.tileSize * 17;
+        // gp.currentMap = 1;
         speed = 8;
         direction = "down";
-
 
         level = 1;
         maxHealth = 6;
@@ -258,14 +256,14 @@ public class Player extends Entity {
                 shotAvailableCounter++;
             }
 
-            if(currentHealth > maxHealth){
+            if (currentHealth > maxHealth) {
                 currentHealth = maxHealth;
             }
-            if(currentMana > maxMana){
+            if (currentMana > maxMana) {
                 currentMana = maxMana;
             }
 
-            if(currentHealth <= 0){
+            if (currentHealth <= 0) {
                 gp.gameState = gp.gameOverState;
                 gp.ui.commandNum = -1;
                 gp.stopMusic();
@@ -394,31 +392,15 @@ public class Player extends Entity {
 
         if (i != 999) {
 
-            if(gp.itemObject[gp.currentMap][i].type == typePickUp) {
+            if (gp.itemObject[gp.currentMap][i].type == typePickUp) {
 
                 gp.itemObject[gp.currentMap][i].use(this);
                 gp.itemObject[gp.currentMap][i] = null;
 
-            }
-
-            else {
+            } else {
                 String objectName = gp.itemObject[gp.currentMap][i].name;
 
                 if (inventory.size() != maxInventorySize) {
-
-                    if (objectName.equals("Woodcutting Axe")) {
-                        gp.playSound(2);
-                        inventory.add(gp.itemObject[gp.currentMap][i]);
-                        gp.itemObject[gp.currentMap][i] = null;
-                        gp.ui.addMessage("You picked up the Woodcutting Axe!");
-                    }
-
-                    if (objectName.equals("Power Robe")) {
-                        gp.playSound(2);
-                        inventory.add(gp.itemObject[gp.currentMap][i]);
-                        gp.itemObject[gp.currentMap][i] = null;
-                        gp.ui.addMessage("You picked up the Power Robe!");
-                    }
 
                     if (objectName.equals("Super Socks")) {
                         gp.playSound(2);
@@ -469,132 +451,162 @@ public class Player extends Entity {
         }
     }
 
-    public void selectItem() {
 
-        int itemIndex = gp.ui.findItemIndex(gp.ui.playerSlotCol,gp.ui.playerSlotRow);
+    private boolean isGameOverHandled = false;
 
-        if (itemIndex < inventory.size()) {
-
-            Entity selectedItem = inventory.get(itemIndex);
-            if (selectedItem.type == typeWhip || selectedItem.type == typeAxe) {
-                currentWeapon = selectedItem;
-                attack = getAttack();
-                getPlayerAttackImages();
-                gp.ui.addMessage("You equipped the " + selectedItem.name + "!");
-            }
-            if (selectedItem.type == typeRobe) {
-                currentRobe = selectedItem;
-                defense = getDefense();
-                gp.ui.addMessage("You equipped the " + selectedItem.name + "!");
-            }
-            if (currentHealth != maxHealth) {
-                if (selectedItem.type == typeConsumable) {
-                    selectedItem.use(this);
-                    inventory.remove(itemIndex);
-                } else {
-                    gp.ui.addMessage("");
-                }
-            }
+    public void checkLevelDown() {
+        if (gp.gameState == gp.gameOverState && !isGameOverHandled && level != 1) {
+            level--;
+            maxHealth -= 2;
+            maxMana -= 1;
+            strength--;
+            dexterity--;
+            experience = 0;
+            nextLevelExperience = getAmountExperienceToNextLevel();
+            currentHealth = maxHealth;
+            currentMana = maxMana;
+            attack = getAttack();
+            defense = getDefense();
+            gold = 0;
+            isGameOverHandled = true;
+        }
+        else {
+            experience = 0;
+            nextLevelExperience = getAmountExperienceToNextLevel();
+            currentHealth = maxHealth;
+            currentMana = maxMana;
+            attack = getAttack();
+            defense = getDefense();
+            gold = 0;
         }
     }
 
+        public void selectItem () {
 
-    public void draw(Graphics2D g2) {
+            int itemIndex = gp.ui.findItemIndex(gp.ui.playerSlotCol, gp.ui.playerSlotRow);
 
-        BufferedImage image = null;
+            if (itemIndex < inventory.size()) {
 
-        int tempScreenX = screenX;
-        int tempScreenY = screenY;
-
-        switch (direction) {
-            case "up" -> {
-                if (!attacking) {
-                    if (spriteNumber == 1) image = back1;
-                    if (spriteNumber == 2) image = back2;
+                Entity selectedItem = inventory.get(itemIndex);
+                if (selectedItem.type == typeWhip || selectedItem.type == typeAxe) {
+                    currentWeapon = selectedItem;
+                    attack = getAttack();
+                    getPlayerAttackImages();
+                    gp.ui.addMessage("You equipped the " + selectedItem.name + "!");
                 }
-
-                if (attacking) {
-                    tempScreenY = screenY - gp.tileSize;
-                    if (spriteNumber == 1) image = attackBack1;
-                    if (spriteNumber == 2) image = attackBack2;
+                if (selectedItem.type == typeRobe) {
+                    currentRobe = selectedItem;
+                    defense = getDefense();
+                    gp.ui.addMessage("You equipped the " + selectedItem.name + "!");
                 }
-
-            }
-            case "down" -> {
-                if (!attacking) {
-                    if (spriteNumber == 1) image = front1;
-                    if (spriteNumber == 2) image = front2;
-                }
-                if (attacking) {
-                    if (spriteNumber == 1) image = attackFront1;
-                    if (spriteNumber == 2) image = attackFront2;
-                }
-
-            }
-            case "left" -> {
-                if (!attacking) {
-                    if (spriteNumber == 1) image = left1;
-                    if (spriteNumber == 2) image = left2;
-                }
-
-                if (attacking) {
-                    tempScreenX = screenX - gp.tileSize;
-                    if (spriteNumber == 1) image = attackLeft1;
-                    if (spriteNumber == 2) image = attackLeft2;
-                }
-            }
-            case "right" -> {
-                if (!attacking) {
-                    if (spriteNumber == 1) image = right1;
-                    if (spriteNumber == 2) image = right2;
-                }
-                if (attacking) {
-                    if (spriteNumber == 1) image = attackRight1;
-                    if (spriteNumber == 2) image = attackRight2;
+                if (currentHealth != maxHealth) {
+                    if (selectedItem.type == typeConsumable) {
+                        selectedItem.use(this);
+                        inventory.remove(itemIndex);
+                    } else {
+                        gp.ui.addMessage("");
+                    }
                 }
             }
         }
 
 
-        if (screenX > worldX) tempScreenX = worldX - (screenX - tempScreenX);
-        if (screenY > worldY) tempScreenY = worldY - (screenY - tempScreenY);
+        public void draw (Graphics2D g2){
 
-        int rightOffset = gp.screenWidth - screenX;
-        if (rightOffset > gp.worldWidth - worldX) {
-            tempScreenX = (gp.screenWidth - (gp.worldWidth - worldX)) - (screenX - tempScreenX);
+            BufferedImage image = null;
+
+            int tempScreenX = screenX;
+            int tempScreenY = screenY;
+
+            switch (direction) {
+                case "up" -> {
+                    if (!attacking) {
+                        if (spriteNumber == 1) image = back1;
+                        if (spriteNumber == 2) image = back2;
+                    }
+
+                    if (attacking) {
+                        tempScreenY = screenY - gp.tileSize;
+                        if (spriteNumber == 1) image = attackBack1;
+                        if (spriteNumber == 2) image = attackBack2;
+                    }
+
+                }
+                case "down" -> {
+                    if (!attacking) {
+                        if (spriteNumber == 1) image = front1;
+                        if (spriteNumber == 2) image = front2;
+                    }
+                    if (attacking) {
+                        if (spriteNumber == 1) image = attackFront1;
+                        if (spriteNumber == 2) image = attackFront2;
+                    }
+
+                }
+                case "left" -> {
+                    if (!attacking) {
+                        if (spriteNumber == 1) image = left1;
+                        if (spriteNumber == 2) image = left2;
+                    }
+
+                    if (attacking) {
+                        tempScreenX = screenX - gp.tileSize;
+                        if (spriteNumber == 1) image = attackLeft1;
+                        if (spriteNumber == 2) image = attackLeft2;
+                    }
+                }
+                case "right" -> {
+                    if (!attacking) {
+                        if (spriteNumber == 1) image = right1;
+                        if (spriteNumber == 2) image = right2;
+                    }
+                    if (attacking) {
+                        if (spriteNumber == 1) image = attackRight1;
+                        if (spriteNumber == 2) image = attackRight2;
+                    }
+                }
+            }
+
+
+            if (screenX > worldX) tempScreenX = worldX - (screenX - tempScreenX);
+            if (screenY > worldY) tempScreenY = worldY - (screenY - tempScreenY);
+
+            int rightOffset = gp.screenWidth - screenX;
+            if (rightOffset > gp.worldWidth - worldX) {
+                tempScreenX = (gp.screenWidth - (gp.worldWidth - worldX)) - (screenX - tempScreenX);
+            }
+            int bottomOffset = gp.screenHeight - screenY;
+            if (bottomOffset > gp.worldHeight - worldY) {
+                tempScreenY = (gp.screenHeight - (gp.worldHeight - worldY)) - (screenY - tempScreenY);
+            }
+
+            if (invincible) {
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
+            }
+
+            g2.drawImage(image, tempScreenX, tempScreenY, null);
+
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
+            tempScreenX = screenX + solidArea.x;
+            tempScreenY = screenY + solidArea.y;
+            switch (direction) {
+                case "up":
+                    tempScreenY = screenY - attackArea.height;
+                    break;
+                case "down":
+                    tempScreenY = screenY + gp.tileSize;
+                    break;
+                case "left":
+                    tempScreenX = screenX - attackArea.width;
+                    break;
+                case "right":
+                    tempScreenX = screenX + gp.tileSize;
+                    break;
+            }
+            g2.setColor(Color.red);
+            g2.setStroke(new BasicStroke(1));
+            g2.drawRect(tempScreenX, tempScreenY, attackArea.width, attackArea.height);
         }
-        int bottomOffset = gp.screenHeight - screenY;
-        if (bottomOffset > gp.worldHeight - worldY) {
-            tempScreenY = (gp.screenHeight - (gp.worldHeight - worldY)) - (screenY - tempScreenY);
-        }
 
-        if (invincible) {
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
-        }
-
-        g2.drawImage(image, tempScreenX, tempScreenY, null);
-
-        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
-
-        tempScreenX = screenX + solidArea.x;
-        tempScreenY = screenY + solidArea.y;
-        switch (direction) {
-            case "up":
-                tempScreenY = screenY - attackArea.height;
-                break;
-            case "down":
-                tempScreenY = screenY + gp.tileSize;
-                break;
-            case "left":
-                tempScreenX = screenX - attackArea.width;
-                break;
-            case "right":
-                tempScreenX = screenX + gp.tileSize;
-                break;
-        }
-        g2.setColor(Color.red);
-        g2.setStroke(new BasicStroke(1));
-        g2.drawRect(tempScreenX, tempScreenY, attackArea.width, attackArea.height);
     }
-
-}

@@ -15,7 +15,7 @@ public class ObjectFrostBolt extends Projectile {
         this.gp = gp;
 
         name = "Frost Bolt";
-        speed = 8;
+        speed = 12;
         maxHealth = 80;
         currentHealth = maxHealth;
         attack = 2;

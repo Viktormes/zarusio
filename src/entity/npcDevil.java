@@ -32,40 +32,51 @@ public class npcDevil extends Entity {
 
     public void setDialog() {
 
-        dialogues[0] = "I am the devil";
-        dialogues[1] = "Welcome to my domain! MOHAHA \n*cough* *cough* HAHAA";
-        dialogues[2] = "So you've come here to DIE?!";
-        dialogues[3] = "You will never leave this place alive!";
+        dialogues[0] = "I am the devil. I will show you where to heal. \nFollow me!";
+        dialogues[1] = "Here you can drink the water of life... or death?";
     }
 
     public void setAction() {
 
 
-        actionLockCounter++;
+        if(onPath){
 
-        if (actionLockCounter == 480) {
-            Random random = new Random();
-            int i = random.nextInt(100) + 1;
+            int goalCol = 23;
+            int goalRow = 8;
+            //int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
+            //int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
+            searchPath(goalCol,goalRow);
+        }
+        else {
+            actionLockCounter++;
 
-            if (i <= 25) {
-                direction = "up";
+            if (actionLockCounter == 480) {
+                Random random = new Random();
+                int i = random.nextInt(100) + 1;
+
+                if (i <= 25) {
+                    direction = "up";
+                }
+                if (i > 25 && i <= 50) {
+                    direction = "down";
+                }
+                if (i > 50 && i <= 75) {
+                    direction = "left";
+                }
+                if (i > 75) {
+                    direction = "right";
+                }
+                actionLockCounter = 0;
             }
-            if (i > 25 && i <= 50) {
-                direction = "down";
-            }
-            if (i > 50 && i <= 75) {
-                direction = "left";
-            }
-            if (i > 75) {
-                direction = "right";
-            }
-            actionLockCounter = 0;
         }
     }
 
     public void speak() {
 
         super.speak();
+
+        onPath = true;
+        speed = 3;
 
     }
 

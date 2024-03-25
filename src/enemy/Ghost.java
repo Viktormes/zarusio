@@ -20,7 +20,8 @@ public class Ghost extends Entity {
 
         type = typeEnemy;
         name = "Ghost";
-        speed = 3;
+        defaultSpeed = 3;
+        speed = defaultSpeed;
         maxHealth = 15;
         currentHealth = maxHealth;
         attack = 6;
@@ -71,10 +72,10 @@ public class Ghost extends Entity {
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
 
-            searchPath(goalCol,goalRow);
+            searchPath(goalCol,goalRow,1);
         }
         else {
-            speed = 3;
+            speed = defaultSpeed;
             actionLockCounter++;
 
             if (actionLockCounter == 480) {

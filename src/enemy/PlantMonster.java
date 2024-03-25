@@ -20,7 +20,8 @@ public class PlantMonster extends Entity {
 
         type = typeEnemy;
         name = "Plant Monster";
-        speed = 1;
+        defaultSpeed = 1;
+        speed = defaultSpeed;
         maxHealth = 4;
         currentHealth = maxHealth;
         attack = 3;
@@ -72,18 +73,26 @@ public class PlantMonster extends Entity {
             int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
 
-            searchPath(goalCol,goalRow);
+            searchPath(goalCol,goalRow,1);
 
             int i = new Random().nextInt(200) + 1;
             if (i > 197 && !projectile.alive && shotAvailableCounter == 60) {
                 projectile.set(worldX, worldY, direction, true, this);
-                gp.projectileList.add(projectile);
+
+                for(int j = 0; j < gp.projectile[gp.currentMap].length; j++) {
+                    if(gp.projectile[gp.currentMap][j] == null) {
+                        gp.projectile[gp.currentMap][j] = projectile;
+                        break;
+                    }
+                }
+
+
                 shotAvailableCounter = 0;
             }
 
         }
         else {
-            speed = 1;
+            speed = defaultSpeed;
             actionLockCounter++;
 
             if (actionLockCounter == 480) {

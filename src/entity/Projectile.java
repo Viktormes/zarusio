@@ -29,7 +29,7 @@ public class Projectile extends Entity {
         if (user == gp.player) {
             int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
             if(monsterIndex != 999) {
-                gp.player.damageEnemy(monsterIndex, attack);
+                gp.player.damageEnemy(monsterIndex, attack, knockBackPower);
                 generateParticle(user.projectile, gp.enemy[gp.currentMap][monsterIndex]);
                 alive = false;
             }
@@ -41,8 +41,7 @@ public class Projectile extends Entity {
                 gp.playSound(4);
                 int damageTaken = attack - gp.player.getDefense();
                 if (damageTaken > 0) {
-                    gp.ui.addFloatingText(String.valueOf(damageTaken), gp.player.screenX + 40
-                            , gp.player.screenY + 20, new Color(190, 8, 8));
+                    gp.ui.addFloatingText(String.valueOf(damageTaken), gp.player.screenX + 40,gp.player.screenY + 20, new Color(190, 8, 8));
                 }
                 generateParticle(user.projectile, gp.player);
                 damagePlayer(attack);

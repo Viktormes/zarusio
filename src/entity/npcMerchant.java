@@ -6,7 +6,6 @@ import object.ObjectHealthPotion;
 import object.ObjectKey;
 import object.ObjectPowerRobe;
 
-
 public class npcMerchant extends Entity {
 
     public npcMerchant(GamePanel gp) {

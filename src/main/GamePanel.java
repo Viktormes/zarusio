@@ -58,7 +58,8 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[][] itemObject = new Entity[maxMap][20];
     public Entity[][] npc = new Entity[maxMap][10];
     public Entity[][] enemy = new Entity[maxMap][20];
-    public ArrayList<Entity> projectileList = new ArrayList<>();
+    public Entity[][] projectile = new Entity[maxMap][20];
+   // public ArrayList<Entity> projectileList = new ArrayList<>();
     public ArrayList<Entity> particleList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
@@ -195,13 +196,13 @@ public class GamePanel extends JPanel implements Runnable {
             //pause menu
         }
 
-        for (int i = 0; i < projectileList.size(); i++) {
-            if (projectileList.get(i) != null) {
-                if(projectileList.get(i).alive){
-                    projectileList.get(i).update();
+        for (int i = 0; i < projectile[1].length; i++) {
+            if (projectile[currentMap][i] != null) {
+                if(projectile[currentMap][i].alive){
+                    projectile[currentMap][i].update();
                 }
-                if(!projectileList.get(i).alive) {
-                    projectileList.remove(i);
+                if(!projectile[currentMap][i].alive) {
+                    projectile[currentMap][i] = null;
                 }
             }
         }
@@ -251,9 +252,9 @@ public class GamePanel extends JPanel implements Runnable {
                     entityList.add(enemy[currentMap][i]);
                 }
             }
-            for (Entity entity : projectileList) {
-                if (entity != null) {
-                    entityList.add(entity);
+            for (int i = 0; i < projectile[1].length; i++) {
+                if (projectile[currentMap][i] != null) {
+                    entityList.add(projectile[currentMap][i]);
                 }
             }
             for (Entity entity : particleList) {

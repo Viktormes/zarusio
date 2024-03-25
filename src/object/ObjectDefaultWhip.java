@@ -13,6 +13,6 @@ public class ObjectDefaultWhip extends Entity {
         front1 = setup("/res/items/whip",gp.tileSize,gp.tileSize);
         itemDescription = "[" + name + "]\nIt's not much, but it's a whip.";
         attackValue = 1;
+        knockBackPower = 3;
     }
-
 }

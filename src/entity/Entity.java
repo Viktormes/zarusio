@@ -13,7 +13,7 @@ public class Entity {
 
     GamePanel gp;
     public int worldX, worldY;
-    public int speed;
+
 
     public BufferedImage mainTitleScreenImage, front1, front2, back1, back2, left1, left2, right1, right2;
     public BufferedImage attackFront1, attackFront2, attackBack1, attackBack2,
@@ -21,7 +21,7 @@ public class Entity {
     public String direction = "down";
 
     public BufferedImage image, image2, image3;
-    public String name;
+
     public int type;
     public final int typePlayer = 0;
     public final int typeNPC = 1;
@@ -40,6 +40,7 @@ public class Entity {
     public int defenseValue;
     public String itemDescription = "";
     public int price;
+    public int knockBackPower = 0;
 
     public int spriteNumber = 1;
     String[] dialogues = new String[20];
@@ -57,6 +58,7 @@ public class Entity {
     public boolean dying = false;
     boolean hpBarOn = false;
     public boolean onPath = false;
+    public boolean knockBack = false;
 
     public int actionLockCounter = 0;
     public int spriteCounter = 0;
@@ -64,8 +66,11 @@ public class Entity {
     public int shotAvailableCounter = 0;
     int dyingCounter = 0;
     int hpBarCounter = 0;
+    int knockBackCounter = 0;
 
-
+    public String name;
+    public int defaultSpeed;
+    public int speed;
     public int maxHealth;
     public int currentHealth;
     public int maxMana;
@@ -137,23 +142,19 @@ public class Entity {
     }
 
     public Color getParticleColor() {
-        Color color = null;
-        return color;
+        return null;
     }
 
     public int getParticleSize() {
-        int size = 0;
-        return size;
+        return 0;
     }
 
     public int getParticleSpeed() {
-        int speed = 0;
-        return speed;
+        return 0;
     }
 
     public int getParticleMaxHealth() {
-        int maxHealth = 0;
-        return maxHealth;
+        return 0;
     }
 
     public void generateParticle(Entity generator, Entity target) {
@@ -190,24 +191,58 @@ public class Entity {
 
     public void update() {
 
-        setAction();
-        checkCollision();
+        if (knockBack) {
+            checkCollision();
+
+            if(collisionOn){
+                knockBackCounter = 0;
+                knockBack = false;
+                speed = defaultSpeed;
+            }
+            else if (!collisionOn) {
+                switch (gp.player.direction){
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY += speed;
+                        break;
+                    case "left":
+                        worldX -= speed;
+                        break;
+                    case "right":
+                        worldX += speed;
+                        break;
+                }
+            }
+            knockBackCounter++;
+            if(knockBackCounter > 10){
+                knockBackCounter = 0;
+                knockBack = false;
+                speed = defaultSpeed;
+            }
+        }
+        else {
+
+            setAction();
+            checkCollision();
 
 
-        if (!collisionOn) {
-            switch (direction) {
-                case "up":
-                    worldY -= speed;
-                    break;
-                case "down":
-                    worldY += speed;
-                    break;
-                case "left":
-                    worldX -= speed;
-                    break;
-                case "right":
-                    worldX += speed;
-                    break;
+            if (!collisionOn) {
+                switch (direction) {
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY += speed;
+                        break;
+                    case "left":
+                        worldX -= speed;
+                        break;
+                    case "right":
+                        worldX += speed;
+                        break;
+                }
             }
         }
         spriteCounter++;
@@ -243,6 +278,7 @@ public class Entity {
             }
             gp.player.currentHealth -= damage;
             gp.player.invincible = true;
+
         }
     }
 
@@ -379,7 +415,10 @@ public class Entity {
         return image;
     }
 
-    public void searchPath(int goalCol, int goalRow) {
+    public void searchPath(int goalCol, int goalRow, int offSet) {
+
+        goalCol += offSet;
+        goalRow += offSet;
 
         int startCol = (worldX + solidArea.x) / gp.tileSize;
         int startRow = (worldY + solidArea.y) / gp.tileSize;

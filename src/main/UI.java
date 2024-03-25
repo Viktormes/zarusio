@@ -62,7 +62,7 @@ public class UI {
         messageCounter.add(0);
     }
 
-    public void addFloatingText(String text, int x, int y, Color color) {
+    public void addFloatingText(String text, int x, int y , Color color) {
         if (text.equals("0")) {
             return;
         }

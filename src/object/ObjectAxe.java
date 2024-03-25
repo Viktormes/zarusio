@@ -13,5 +13,6 @@ public class ObjectAxe extends Entity {
             attackValue = 2;
             itemDescription = "[Woodcutting Axe]\nAn axe. It cuts wood.";
             price = 50;
+            knockBackPower = 10;
         }
 }

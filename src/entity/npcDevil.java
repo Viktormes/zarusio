@@ -45,7 +45,7 @@ public class npcDevil extends Entity {
             int goalRow = 8;
             //int goalCol = (gp.player.worldX + gp.player.solidArea.x)/gp.tileSize;
             //int goalRow = (gp.player.worldY + gp.player.solidArea.y)/gp.tileSize;
-            searchPath(goalCol,goalRow);
+            searchPath(goalCol,goalRow,1);
         }
         else {
             actionLockCounter++;

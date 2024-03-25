@@ -54,7 +54,8 @@ public class Player extends Entity {
         // worldX = gp.tileSize * 17;
         // worldY = gp.tileSize * 17;
         // gp.currentMap = 1;
-        speed = 8;
+        defaultSpeed = 8;
+        speed = defaultSpeed;
         direction = "down";
 
         level = 1;
@@ -66,7 +67,7 @@ public class Player extends Entity {
         dexterity = 1;
         experience = 0;
         nextLevelExperience = getAmountExperienceToNextLevel();
-        gold = 0;
+        gold = 100;
         currentWeapon = new ObjectDefaultWhip(gp);
         currentRobe = new ObjectDefaultRobe(gp);
         projectile = new ObjectFrostBolt(gp);
@@ -95,6 +96,7 @@ public class Player extends Entity {
         inventory.add(currentRobe);
         inventory.add(new ObjectKey(gp));
         inventory.add(new ObjectHealthPotion(gp));
+        inventory.add(new ObjectAxe(gp));
 
     }
 
@@ -238,8 +240,12 @@ public class Player extends Entity {
 
                 projectile.useResource(this);
 
-
-                gp.projectileList.add(projectile);
+                for(int i = 0; i < gp.projectile[1].length; i++) {
+                    if(gp.projectile[gp.currentMap][i] == null) {
+                        gp.projectile[gp.currentMap][i] = projectile;
+                        break;
+                    }
+                }
 
                 shotAvailableCounter = 0;
 
@@ -275,6 +281,9 @@ public class Player extends Entity {
 
     public void attacking() {
 
+
+
+
         spriteCounter++;
 
         if (spriteCounter <= 5) {
@@ -307,12 +316,30 @@ public class Player extends Entity {
 
             int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
 
+
+
+            int projectileIndex = gp.collisionChecker.checkEntity(this, gp.projectile);
+            destroyProjectile(projectileIndex);
+
+
             worldX = currentWorldX;
             worldY = currentWorldY;
             solidArea.width = solidAreaWidth;
             solidArea.height = solidAreaHeight;
 
-            damageEnemy(enemyIndex, attack);
+            damageEnemy(enemyIndex, attack, currentWeapon.knockBackPower);
+
+
+
+        }
+        if (spriteCounter == 5) {
+
+            if(currentWeapon.type == typeWhip){
+                gp.playSound(7);
+
+            } else if (currentWeapon.type == typeAxe){
+                gp.playSound(8);
+            }
 
         }
         if (spriteCounter > 20) {
@@ -334,20 +361,39 @@ public class Player extends Entity {
                 if (damage < 0) {
                     damage = 0;
                 }
-                gp.ui.addFloatingText(String.valueOf(damage), screenX + 40
-                        , screenY + 20, new Color(190, 8, 8));
+                gp.ui.addFloatingText(String.valueOf(damage), screenX + 40, screenY + 20, new Color(190, 8, 8));
+                generateParticle(gp.player, gp.player);
                 currentHealth -= damage;
                 invincible = true;
             }
         }
 
     }
+    public Color getParticleColor() {
+        return new Color(190, 8, 8);
+    }
+    public int getParticleSize() {
+        int size = 10;
+        return size;
+    }
+    public int getParticleSpeed() {
+        int speed = 1;
+        return speed;
+    }
+    public int getParticleMaxHealth() {
+        int maxHealth = 20;
+        return maxHealth;
+    }
 
-    public void damageEnemy(int i, int attack) {
+    public void damageEnemy(int i, int attack, int knockBackPower) {
 
         if (i != 999) {
             if (!gp.enemy[gp.currentMap][i].invincible) {
                 gp.playSound(3);
+
+                if (knockBackPower > 0) {
+                    knockBack(gp.enemy[gp.currentMap][i], knockBackPower);
+                }
 
                 int damage = attack - gp.enemy[gp.currentMap][i].defense;
                 if (damage < 0) {
@@ -364,6 +410,7 @@ public class Player extends Entity {
                 gp.ui.addFloatingText(String.valueOf(actualDamage), enemyX + 40, enemyY + 20, new Color(190, 8, 8));
                 gp.enemy[gp.currentMap][i].invincible = true;
                 gp.enemy[gp.currentMap][i].damageReaction();
+                generateParticle(this, gp.enemy[gp.currentMap][i]);
 
                 if (gp.enemy[gp.currentMap][i].currentHealth <= 0) {
                     gp.enemy[gp.currentMap][i].dying = true;
@@ -420,13 +467,29 @@ public class Player extends Entity {
                         }
                         int actualHealed = currentHealth - healthBeforeHeal;
                         gp.itemObject[gp.currentMap][i] = null;
-                        gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40
-                                , screenY + 20, Color.GREEN);
+                        gp.ui.addFloatingText(String.valueOf(actualHealed), screenX + 40, screenY + 20, Color.GREEN);
                     }
                 } else {
                     gp.ui.addMessage("Your inventory is full!");
                 }
             }
+        }
+    }
+
+    public void knockBack(Entity entity, int knockBackPower) {
+
+        entity.direction = direction;
+        entity.speed += knockBackPower;
+        entity.knockBack = true;
+
+    }
+
+    public void destroyProjectile(int i) {
+
+        if (i != 999) {
+            Entity projectile = gp.projectile[gp.currentMap][i];
+            projectile.alive = false;
+            generateParticle(projectile, projectile);
         }
     }
 
@@ -452,25 +515,8 @@ public class Player extends Entity {
     }
 
 
-    private boolean isGameOverHandled = false;
-
     public void checkLevelDown() {
-        if (gp.gameState == gp.gameOverState && !isGameOverHandled && level != 1) {
-            level--;
-            maxHealth -= 2;
-            maxMana -= 1;
-            strength--;
-            dexterity--;
-            experience = 0;
-            nextLevelExperience = getAmountExperienceToNextLevel();
-            currentHealth = maxHealth;
-            currentMana = maxMana;
-            attack = getAttack();
-            defense = getDefense();
-            gold = 0;
-            isGameOverHandled = true;
-        }
-        else {
+        if (gp.gameState == gp.gameOverState) {
             experience = 0;
             nextLevelExperience = getAmountExperienceToNextLevel();
             currentHealth = maxHealth;

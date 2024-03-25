@@ -14,8 +14,11 @@ public class Sound {
     FloatControl floatControl;
     int volumeScale = 3;
     float volume;
+    private SoundManager soundManager;
 
     public Sound() {
+
+        soundManager = new SoundManager();
 
         soundURL[0] = getClass().getResource("/res/sound/hit.wav");
         soundURL[1] = getClass().getResource("/res/sound/titleSong.mid");
@@ -51,7 +54,7 @@ public class Sound {
     }
 
     public void play() {
-            clip.start();
+            soundManager.playSound(clip);
 
     }
 

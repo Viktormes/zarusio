@@ -2,6 +2,7 @@ package main;
 
 import enemy.Ghost;
 import enemy.PlantMonster;
+import entity.Player;
 import entity.npcDevil;
 import entity.npcMerchant;
 import object.*;
@@ -115,5 +116,18 @@ public class AssetManager {
         gp.enemy[mapNum][i] = new Ghost(gp);
         gp.enemy[mapNum][i].worldX = 72 * gp.tileSize;
         gp.enemy[mapNum][i].worldY = 43 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 55 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 74 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 68 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 75 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 53 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 83 * gp.tileSize;
+        i++;
     }
 }

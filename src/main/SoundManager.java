@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SoundManager {
-    private static final int MAX_SOUNDS = 10;
+    private static final int MAX_SOUNDS = 20;
     private Queue<Clip> sounds;
 
     public SoundManager() {
@@ -13,11 +13,19 @@ public class SoundManager {
     }
 
     public void playSound(Clip clip) {
-        if (sounds.size() >= MAX_SOUNDS) {
-            Clip oldestSound = sounds.poll();
-            oldestSound.stop();
+        try {
+            if (sounds.size() >= MAX_SOUNDS) {
+                Clip oldestSound = sounds.poll();
+                if (oldestSound != null) {
+                    oldestSound.stop();
+                    oldestSound.close();
+                }
+            }
+            clip.start();
+            sounds.add(clip);
+        } catch (Exception e) {
+            System.err.println("Error playing sound: " + e.getMessage());
+            e.printStackTrace();
         }
-        clip.start();
-        sounds.add(clip);
     }
 }

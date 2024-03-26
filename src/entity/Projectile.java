@@ -33,6 +33,12 @@ public class Projectile extends Entity {
                 generateParticle(user.projectile, gp.enemy[gp.currentMap][monsterIndex]);
                 alive = false;
             }
+            int projectileIndex = gp.collisionChecker.checkEntity(this, gp.projectile);
+            if(projectileIndex != 999) {
+                gp.projectile[gp.currentMap][projectileIndex].currentHealth = 0;
+                generateParticle(user.projectile, gp.projectile[gp.currentMap][projectileIndex]);
+                alive = false;
+            }
         }
 
         if (user != gp.player){
@@ -48,7 +54,6 @@ public class Projectile extends Entity {
                 alive = false;
             }
         }
-
 
         switch(direction) {
             case "up":

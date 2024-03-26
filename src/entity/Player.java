@@ -34,8 +34,8 @@ public class Player extends Entity {
         solidArea.y = 8;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 70;
-        solidArea.height = 70;
+        solidArea.width = 45;
+        solidArea.height = 60;
 
 
         attackArea.width = 80;
@@ -276,13 +276,9 @@ public class Player extends Entity {
                 gp.playSound(11);
             }
         }
-
     }
 
     public void attacking() {
-
-
-
 
         spriteCounter++;
 
@@ -316,11 +312,8 @@ public class Player extends Entity {
 
             int enemyIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
 
-
-
             int projectileIndex = gp.collisionChecker.checkEntity(this, gp.projectile);
             destroyProjectile(projectileIndex);
-
 
             worldX = currentWorldX;
             worldY = currentWorldY;

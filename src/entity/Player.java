@@ -18,7 +18,6 @@ public class Player extends Entity {
     private int attackCoolDown = 0;
     private final int attackCoolDownPeriod = 22;
 
-
     public Player(GamePanel gp, KeyHandler keyH) {
 
         super(gp);
@@ -65,6 +64,7 @@ public class Player extends Entity {
         currentMana = maxMana;
         strength = 1;
         dexterity = 1;
+        intellect = 1;
         experience = 0;
         nextLevelExperience = getAmountExperienceToNextLevel();
         gold = 100;
@@ -101,7 +101,7 @@ public class Player extends Entity {
     }
 
     public int getAttack() {
-        return strength * currentWeapon.attackValue;
+        return strength  * currentWeapon.attackValue;
     }
 
     public int getDefense() {
@@ -233,11 +233,11 @@ public class Player extends Entity {
                 }
             }
 
-            if (gp.keyH.projectileKeyPressed && !projectile.alive
+            if (keyH.projectileKeyPressed && !projectile.alive
                     && shotAvailableCounter == 60 && projectile.hasResource(this)) {
 
+                gp.playSound(15);
                 projectile.set(worldX, worldY, direction, true, this);
-
                 projectile.useResource(this);
 
                 for(int i = 0; i < gp.projectile[1].length; i++) {
@@ -248,8 +248,14 @@ public class Player extends Entity {
                 }
 
                 shotAvailableCounter = 0;
-
             }
+
+            if(keyH.arrowKeyPressed && !projectile.alive && shotAvailableCounter == 60) {
+                shootArrow();
+                shotAvailableCounter = 0;
+            }
+
+
 
             if (invincible) {
                 invincibleCounter++;
@@ -498,6 +504,7 @@ public class Player extends Entity {
             currentMana = maxMana;
             strength++;
             dexterity++;
+            intellect++;
             attack = getAttack();
             defense = getDefense();
             gp.playSound(5);
@@ -545,6 +552,21 @@ public class Player extends Entity {
                     } else {
                         gp.ui.addMessage("");
                     }
+                }
+            }
+        }
+
+        public void shootArrow() {
+
+            ObjectArrow arrow = new ObjectArrow(gp);
+            gp.playSound(14);
+            arrow.set(worldX, worldY, direction, true, this);
+
+
+            for(int i = 0; i < gp.projectile[1].length; i++) {
+                if(gp.projectile[gp.currentMap][i] == null) {
+                    gp.projectile[gp.currentMap][i] = arrow;
+                    break;
                 }
             }
         }

@@ -78,6 +78,7 @@ public class Entity {
     public int level;
     public int strength;
     public int dexterity;
+    public int intellect;
     public int attack;
     public int defense;
     public int experience;
@@ -86,6 +87,7 @@ public class Entity {
     public Entity currentWeapon;
     public Entity currentRobe;
     public Projectile projectile;
+
 
     public int useCost;
 

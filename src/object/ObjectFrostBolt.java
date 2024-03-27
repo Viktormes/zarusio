@@ -53,7 +53,7 @@ public class ObjectFrostBolt extends Projectile {
     }
 
     public Color getParticleColor() {
-        Color color = Color.CYAN;
+        Color color = Color.GRAY;
         return color;
     }
     public int getParticleSize() {

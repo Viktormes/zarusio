@@ -347,9 +347,9 @@ public class UI {
     public void drawCharacterScreen() {
 
         final int frameX = gp.tileSize * 2;
-        final int frameY = gp.tileSize;
+        final int frameY = gp.tileSize/2;
         final int frameWidth = gp.tileSize * 4;
-        final int frameHeight = gp.tileSize * 10;
+        final int frameHeight = gp.tileSize * 11;
         drawSubWindow(frameX, frameY, frameWidth, frameHeight);
 
         g2.setColor(Color.WHITE);
@@ -374,6 +374,8 @@ public class UI {
         g2.drawString("Strength", textX, textY);
         textY += lineHeight;
         g2.drawString("Dexterity", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Intellect", textX, textY);
         textY += lineHeight;
         g2.drawString("EXP to level up", textX, textY);
         textY += lineHeight;
@@ -425,6 +427,11 @@ public class UI {
         textY += lineHeight;
 
         value = String.valueOf(gp.player.dexterity);
+        textX = getXForAlignToRight(value, tailX);
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.intellect);
         textX = getXForAlignToRight(value, tailX);
         g2.drawString(value, textX, textY);
         textY += lineHeight;
@@ -849,7 +856,7 @@ public class UI {
             if (commandNum == 0) {
                 g2.drawString(">", x - gp.tileSize, y);
             }
-            text = "Druid";
+            text = "Ranger";
             x = getXForCenteredString(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
@@ -925,7 +932,7 @@ public class UI {
         textY += gp.tileSize;
         g2.drawString("Space", textX, textY);
         textY += gp.tileSize;
-        g2.drawString("F", textX, textY);
+        g2.drawString("F,G", textX, textY);
         textY += gp.tileSize;
         g2.drawString("C", textX, textY);
         textY += gp.tileSize;

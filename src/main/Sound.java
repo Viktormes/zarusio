@@ -34,6 +34,8 @@ public class Sound {
         soundURL[11] = getClass().getResource("/res/sound/gameOver.wav");
         soundURL[12] = getClass().getResource("/res/sound/fall.wav");
         soundURL[13] = getClass().getResource("/res/sound/teleport.wav");
+        soundURL[14] = getClass().getResource("/res/sound/whipSwoosh.wav");
+        soundURL[15] = getClass().getResource("/res/sound/magicSound.wav");
     }
 
     public void setFile(int i) {

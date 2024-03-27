@@ -22,7 +22,7 @@ public class PlantMonster extends Entity {
         name = "Plant Monster";
         defaultSpeed = 1;
         speed = defaultSpeed;
-        maxHealth = 4;
+        maxHealth = 6;
         currentHealth = maxHealth;
         attack = 3;
         defense = 0;

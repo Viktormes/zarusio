@@ -48,6 +48,18 @@ public class TileManager {
         setup(12,"dirtTile",false);
         setup(13,"portal", false);
         setup(14,"coolstone",true);
+        setup(15,"waterBeachDown",true);
+        setup(17,"waterBeachLeft",true);
+        setup(16,"waterBeachRight",true);
+        setup(18,"waterBeachUp",true);
+        setup(19,"grassSandDown",false);
+        setup(20,"grassSandLeft",false);
+        setup(21,"grassSandRight",false);
+        setup(22,"grassSandUp",false);
+        setup(23,"treeTwo",true);
+        setup(24,"treeThree",true);
+        setup(26,"deadTree",true);
+
 
     }
 

@@ -6,7 +6,10 @@ import object.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Player extends Entity {
 
@@ -17,6 +20,12 @@ public class Player extends Entity {
     public final int screenY;
     private int attackCoolDown = 0;
     private final int attackCoolDownPeriod = 22;
+    private long dashCoolDown = 0;
+    private boolean twoButtonWasPressed = false;
+    private boolean threeButtonWasPressed = false;
+
+
+    BufferedImage magicBeamImage;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -24,6 +33,8 @@ public class Player extends Entity {
 
         this.gp = gp;
         this.keyH = keyH;
+
+        magicBeamImage = setup("/res/spells/magicBeam", gp.tileSize, gp.tileSize);
 
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
@@ -33,12 +44,12 @@ public class Player extends Entity {
         solidArea.y = 8;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 45;
-        solidArea.height = 60;
+        solidArea.width = 50;
+        solidArea.height = 50;
 
 
-        attackArea.width = 80;
-        attackArea.height = 90;
+        attackArea.width = 100;
+        attackArea.height = 100;
 
         setDefaultValues();
         getPlayerImage();
@@ -70,7 +81,7 @@ public class Player extends Entity {
         gold = 100;
         currentWeapon = new ObjectDefaultWhip(gp);
         currentRobe = new ObjectDefaultRobe(gp);
-        projectile = new ObjectFrostBolt(gp);
+        projectile = new ObjectFrostBolt(gp, this);
         attack = getAttack();
         defense = getDefense();
     }
@@ -105,7 +116,11 @@ public class Player extends Entity {
     }
 
     public int getDefense() {
-        return dexterity * currentRobe.defenseValue;
+        return strength * currentRobe.defenseValue;
+    }
+
+    public void updateFrostBolt() {
+        this.projectile = new ObjectFrostBolt(gp,this);
     }
 
     public int getAmountExperienceToNextLevel() {
@@ -152,6 +167,28 @@ public class Player extends Entity {
 
     public void update() {
 
+
+        if (keyH.onePressed){
+            dash();
+        }
+
+        if(keyH.twoPressed && !twoButtonWasPressed){
+            magicExplosion();
+            twoButtonWasPressed = true;
+        }
+
+        if(!keyH.twoPressed){
+            twoButtonWasPressed = false;
+        }
+
+        if(keyH.threePressed && !threeButtonWasPressed){
+            magicBeam();
+            threeButtonWasPressed = true;
+        }
+
+        if(!keyH.threePressed){
+            threeButtonWasPressed = false;
+        }
 
         if (!attacking) {
             attackCoolDown++;
@@ -254,8 +291,6 @@ public class Player extends Entity {
                 shootArrow();
                 shotAvailableCounter = 0;
             }
-
-
 
             if (invincible) {
                 invincibleCounter++;
@@ -384,6 +419,112 @@ public class Player extends Entity {
         return maxHealth;
     }
 
+    public void dash() {
+        int dashDistance = gp.tileSize * 3;
+        int dashTimer = 2000;
+        long currentTime = System.currentTimeMillis();
+        if(currentTime - dashCoolDown >= dashTimer) {
+            int tempWorldX = worldX;
+            int tempWorldY = worldY;
+            switch (direction) {
+                case "up":
+                    tempWorldY -= dashDistance;
+                    break;
+                case "down":
+                    tempWorldY += dashDistance;
+                    break;
+                case "left":
+                    tempWorldX -= dashDistance;
+                    break;
+                case "right":
+                    tempWorldX += dashDistance;
+                    break;
+            }
+            Entity tempEntity = new Entity(gp);
+            tempEntity.worldX = tempWorldX;
+            tempEntity.worldY = tempWorldY;
+
+            gp.collisionChecker.checkTile(tempEntity);
+            if (!tempEntity.collisionOn) {
+                worldX = tempWorldX;
+                worldY = tempWorldY;
+                dashCoolDown = currentTime;
+            }
+
+
+        }
+    }
+
+    public void magicExplosion() {
+
+        int damageRadius = gp.tileSize * 3;
+        int damageAmount = 4 + gp.player.intellect;
+        int manaCost = 4;
+
+        if(currentMana >= manaCost) {
+            currentMana -= manaCost;
+
+            for (int i = 0; i < gp.enemy[gp.currentMap].length; i++) {
+                Entity entity = gp.enemy[gp.currentMap][i];
+                if (entity != null) {
+                    int dx = entity.worldX - worldX;
+                    int dy = entity.worldY - worldY;
+                    int distance = (int) Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance <= damageRadius) {
+                        damageEnemy(i, damageAmount, 0);
+                    }
+                }
+            }
+        }
+        else {
+            gp.ui.addMessage("Not enough mana!");
+        }
+    }
+
+    public void magicBeam() {
+        int manaCost = 2;
+        if (currentMana >= manaCost) {
+            currentMana -= manaCost;
+
+            int damage = 3 + intellect;
+            int range = 5;
+            int dx = 0, dy = 0;
+
+            switch (direction) {
+                case "up":
+                    dy = -1;
+                    break;
+                case "down":
+                    dy = 1;
+                    break;
+                case "left":
+                    dx = -1;
+                    break;
+                case "right":
+                    dx = 1;
+                    break;
+            }
+
+            for (int i = 1; i <= range; i++) {
+                int checkX = worldX + i * dx * gp.tileSize;
+                int checkY = worldY + i * dy * gp.tileSize;
+
+                Entity tempEntity = new Entity(gp);
+                tempEntity.worldX = checkX;
+                tempEntity.worldY = checkY;
+
+                int enemyIndex = gp.collisionChecker.checkEntity(tempEntity, gp.enemy);
+                if (enemyIndex != 999) {
+                    damageEnemy(enemyIndex, damage, 10);
+                }
+            }
+        }
+        else {
+            gp.ui.addMessage("Not enough mana!");
+        }
+    }
+
     public void damageEnemy(int i, int attack, int knockBackPower) {
 
         if (i != 999) {
@@ -507,7 +648,17 @@ public class Player extends Entity {
             intellect++;
             attack = getAttack();
             defense = getDefense();
+            updateFrostBolt();
+            gp.stopMusic();
             gp.playSound(5);
+
+            Timer timer = new Timer();
+            timer.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    gp.playMusic(1);
+                }
+            }, 2000);
             gp.gameState = gp.dialogState;
             gp.ui.currentDialog = "You have reached level " + level + "!";
 
@@ -523,6 +674,7 @@ public class Player extends Entity {
             currentMana = maxMana;
             attack = getAttack();
             defense = getDefense();
+            updateFrostBolt();
             gold = 0;
         }
     }
@@ -571,6 +723,9 @@ public class Player extends Entity {
             }
         }
 
+        public int getIntellect() {
+            return intellect;
+        }
 
         public void draw (Graphics2D g2){
 

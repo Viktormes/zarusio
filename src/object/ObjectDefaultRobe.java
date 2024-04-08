@@ -13,5 +13,6 @@ public class ObjectDefaultRobe extends Entity {
         front1 = setup("/res/items/robe",gp.tileSize,gp.tileSize);
         itemDescription = "[" + name + "]\nIt's a robe.";
         defenseValue = 1;
+        intellectValue = 0;
     }
 }

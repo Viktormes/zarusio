@@ -6,7 +6,9 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed, spacePressed, cPressed, projectileKeyPressed, arrowKeyPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed,
+            enterPressed, spacePressed, cPressed, projectileKeyPressed,
+            arrowKeyPressed, onePressed, twoPressed, threePressed;
     public boolean tPressed = false;
 
 
@@ -30,14 +32,14 @@ public class KeyHandler implements KeyListener {
 
             if (gp.ui.titleScreenState == 0) {
 
-                if (code == KeyEvent.VK_W) {
+                if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                     gp.ui.commandNum--;
                     gp.playSound(10);
                     if (gp.ui.commandNum < 0) {
                         gp.ui.commandNum = 2;
                     }
                 }
-                if (code == KeyEvent.VK_S) {
+                if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                     gp.ui.commandNum++;
                     gp.playSound(10);
                     if (gp.ui.commandNum > 2) {
@@ -58,14 +60,14 @@ public class KeyHandler implements KeyListener {
                 }
             } else if (gp.ui.titleScreenState == 1) {
 
-                if (code == KeyEvent.VK_W) {
+                if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                     gp.ui.commandNum--;
                     gp.playSound(10);
                     if (gp.ui.commandNum < 0) {
                         gp.ui.commandNum = 2;
                     }
                 }
-                if (code == KeyEvent.VK_S) {
+                if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                     gp.ui.commandNum++;
                     gp.playSound(10);
                     if (gp.ui.commandNum > 2) {
@@ -93,16 +95,16 @@ public class KeyHandler implements KeyListener {
 
         if (gp.gameState == gp.playState) {
 
-            if (code == KeyEvent.VK_W) {
+            if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP){
                 upPressed = true;
             }
-            if (code == KeyEvent.VK_S) {
+            if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                 downPressed = true;
             }
-            if (code == KeyEvent.VK_A) {
+            if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
                 leftPressed = true;
             }
-            if (code == KeyEvent.VK_D) {
+            if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
                 rightPressed = true;
             }
 
@@ -133,6 +135,15 @@ public class KeyHandler implements KeyListener {
             }
             if(code == KeyEvent.VK_G){
                 arrowKeyPressed = true;
+            }
+            if(code == KeyEvent.VK_1){
+                onePressed = true;
+            }
+            if (code == KeyEvent.VK_2) {
+                twoPressed = true;
+            }
+            if(code == KeyEvent.VK_3){
+                threePressed = true;
             }
         } else if (gp.gameState == gp.pauseState) {
             if (code == KeyEvent.VK_P) {
@@ -168,21 +179,21 @@ else if(gp.gameState == gp.optionsState){
                 break;
             }
 
-            if ( code == KeyEvent.VK_W) {
+            if ( code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
                 gp.playSound(10);
                 if (gp.ui.commandNum < 0) {
                     gp.ui.commandNum = maxCommandNum;
                 }
             }
-            if (code == KeyEvent.VK_S) {
+            if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                 gp.ui.commandNum++;
                 gp.playSound(10);
                 if (gp.ui.commandNum > maxCommandNum) {
                     gp.ui.commandNum = 0;
                 }
             }
-            if (code == KeyEvent.VK_A) {
+            if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
                 if(gp.ui.subState == 0){
                     if(gp.ui.commandNum == 1 && gp.music.volumeScale > 0){
                         gp.music.volumeScale--;
@@ -195,7 +206,7 @@ else if(gp.gameState == gp.optionsState){
                     }
                 }
             }
-            if (code == KeyEvent.VK_D) {
+            if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
                 if(gp.ui.subState == 0){
                     if(gp.ui.commandNum == 1 && gp.music.volumeScale < 5){
                         gp.music.volumeScale++;
@@ -211,14 +222,14 @@ else if(gp.gameState == gp.optionsState){
 
         }
         else if (gp.gameState == gp.gameOverState) {
-            if (code == KeyEvent.VK_W) {
+            if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
                 gp.ui.commandNum--;
                 if(gp.ui.commandNum < 0){
                     gp.ui.commandNum = 1;
                 }
                 gp.playSound(10);
             }
-            if (code == KeyEvent.VK_S) {
+            if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                 gp.ui.commandNum++;
                 if(gp.ui.commandNum > 1){
                     gp.ui.commandNum = 0;
@@ -277,25 +288,25 @@ else if(gp.gameState == gp.optionsState){
 
     public void playerInventory(int code) {
 
-        if (code == KeyEvent.VK_W) {
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
             if (gp.ui.playerSlotRow != 0) {
                 gp.ui.playerSlotRow--;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_S) {
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
             if (gp.ui.playerSlotRow != 3) {
                 gp.ui.playerSlotRow++;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_A) {
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
             if (gp.ui.playerSlotCol != 0) {
                 gp.ui.playerSlotCol--;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_D) {
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
             if (gp.ui.playerSlotCol != 4) {
                 gp.ui.playerSlotCol++;
                 gp.playSound(10);
@@ -305,25 +316,25 @@ else if(gp.gameState == gp.optionsState){
 
     public void npcInventory(int code) {
 
-        if (code == KeyEvent.VK_W) {
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
             if (gp.ui.npcSlotRow != 0) {
                 gp.ui.npcSlotRow--;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_S) {
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
             if (gp.ui.npcSlotRow != 3) {
                 gp.ui.npcSlotRow++;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_A) {
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
             if (gp.ui.npcSlotCol != 0) {
                 gp.ui.npcSlotCol--;
                 gp.playSound(10);
             }
         }
-        if (code == KeyEvent.VK_D) {
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
             if (gp.ui.npcSlotCol != 4) {
                 gp.ui.npcSlotCol++;
                 gp.playSound(10);
@@ -336,16 +347,16 @@ else if(gp.gameState == gp.optionsState){
 
         int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_W) {
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
             upPressed = false;
         }
-        if (code == KeyEvent.VK_S) {
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
             downPressed = false;
         }
-        if (code == KeyEvent.VK_A) {
+        if (code == KeyEvent.VK_A || code == KeyEvent.VK_LEFT) {
             leftPressed = false;
         }
-        if (code == KeyEvent.VK_D) {
+        if (code == KeyEvent.VK_D || code == KeyEvent.VK_RIGHT) {
             rightPressed = false;
         }
         if (code == KeyEvent.VK_ENTER) {
@@ -362,6 +373,15 @@ else if(gp.gameState == gp.optionsState){
         }
         if(code == KeyEvent.VK_G){
             arrowKeyPressed = false;
+        }
+        if(code == KeyEvent.VK_1){
+            onePressed = false;
+        }
+        if (code == KeyEvent.VK_2) {
+            twoPressed = false;
+        }
+        if(code == KeyEvent.VK_3){
+            threePressed = false;
         }
     }
 }

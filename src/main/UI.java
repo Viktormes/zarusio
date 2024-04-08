@@ -84,14 +84,18 @@ public class UI {
 
         if (gp.gameState == gp.playState) {
             drawPlayerHealth();
+            drawPlayerExperienceBar();
             drawMessage();
+
         }
         if (gp.gameState == gp.pauseState) {
             drawPlayerHealth();
+            drawPlayerExperienceBar();
             drawPauseScreen();
         }
         if (gp.gameState == gp.dialogState) {
             drawPlayerHealth();
+            drawPlayerExperienceBar();
             drawDialogScreen();
         }
         if (gp.gameState == gp.characterState) {
@@ -712,51 +716,51 @@ public class UI {
         return tailX - length;
     }
 
-    private void drawPlayerHealth() {
+    public void drawPlayerHealth() {
+        int barWidth = 350;
+        int barHeight = 35;
+        int margin = 30;
+        int healthBarY = margin;
+        int manaBarY = healthBarY + barHeight + margin;
 
-        int x = gp.tileSize / 2;
-        int y = gp.tileSize / 2;
-        int i = 0;
+        int barX = margin;
 
-        while (i < gp.player.maxHealth / 2) {
-            g2.drawImage(heartEmpty, x, y, null);
-            i++;
-            x += gp.tileSize;
-        }
+        int healthForegroundWidth = (int) ((double) gp.player.currentHealth / gp.player.maxHealth * barWidth);
+        int manaForegroundWidth = (int) ((double) gp.player.currentMana / gp.player.maxMana * barWidth);
 
-        x = gp.tileSize / 2;
-        y = gp.tileSize / 2;
-        i = 0;
+        g2.setColor(Color.BLACK);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRect(barX, healthBarY, barWidth, barHeight);
+        g2.setStroke(new BasicStroke(1));
 
-        while (i < gp.player.currentHealth) {
-            g2.drawImage(heartHalf, x, y, null);
-            i++;
-            if (i < gp.player.currentHealth) {
-                g2.drawImage(heartFull, x, y, null);
-            }
-            i++;
-            x += gp.tileSize;
-        }
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.fillRect(barX, healthBarY, barWidth, barHeight);
 
-        x = gp.tileSize / 2;
-        y = gp.tileSize + 20;
-        i = 0;
-        while (i < gp.player.maxMana) {
-            g2.drawImage(manaBlank, x, y, null);
-            i++;
-            x += gp.tileSize;
-        }
+        g2.setColor(new Color(180, 10, 35));
+        g2.fillRect(barX, healthBarY, healthForegroundWidth, barHeight);
 
-        x = gp.tileSize / 2;
-        y = gp.tileSize + 20;
-        i = 0;
-        while (i < gp.player.currentMana) {
-            g2.drawImage(mana, x, y, null);
-            i++;
-            x += gp.tileSize;
-        }
+        g2.setColor(Color.BLACK);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRect(barX, manaBarY, barWidth, barHeight);
+        g2.setStroke(new BasicStroke(1));
 
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.fillRect(barX, manaBarY, barWidth, barHeight);
 
+        g2.setColor(new Color(25, 25, 176));
+        g2.fillRect(barX, manaBarY, manaForegroundWidth, barHeight);
+
+        g2.setColor(Color.WHITE);
+        g2.setFont(font.deriveFont(30F));
+        String healthText = gp.player.currentHealth + "/" + gp.player.maxHealth;
+        int textX = barX + barWidth / 2 - g2.getFontMetrics().stringWidth(healthText) / 2;
+        int textY = healthBarY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;
+        g2.drawString(healthText, textX, textY);
+
+        String manaText = gp.player.currentMana + "/" + gp.player.maxMana;
+        textX = barX + barWidth / 2 - g2.getFontMetrics().stringWidth(manaText) / 2;
+        textY = manaBarY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;
+        g2.drawString(manaText, textX, textY);
     }
 
     public void drawMessage() {
@@ -998,6 +1002,41 @@ public class UI {
 
         g2.drawString(text, x, y);
 
+    }
+
+    public void drawPlayerExperienceBar() {
+        int barWidth = 800;
+        int barHeight = 35;
+        int margin = 10;
+        int barY = margin;
+
+        int barX = (gp.screenWidth - barWidth) / 2;
+
+        int foregroundWidth = (int) ((double) gp.player.experience / gp.player.nextLevelExperience * barWidth);
+
+        g2.setColor(Color.BLACK);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRect(barX, barY, barWidth, barHeight);
+        g2.setStroke(new BasicStroke(1));
+
+        g2.setColor(new Color(0, 0, 0, 100));
+        g2.fillRect(barX, barY, barWidth, barHeight);
+
+        g2.setColor(new Color(106, 178, 106));
+        g2.fillRect(barX, barY, foregroundWidth, barHeight);
+
+        g2.setColor(Color.WHITE);
+        g2.setFont(font.deriveFont(35F));
+        String text = gp.player.experience + " / " + gp.player.nextLevelExperience + " EXP";
+        int textX = barX + barWidth / 2 - g2.getFontMetrics().stringWidth(text) / 2;
+        int textY = barY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;
+        g2.drawString(text, textX, textY);
+
+        String levelText = "Lvl: " + gp.player.level;
+        int levelWidth = g2.getFontMetrics().stringWidth(levelText);
+        int levelX = barX - margin - levelWidth;
+        int levelY = barY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;
+        g2.drawString(levelText, levelX, levelY);
     }
 
     public int getXForCenteredString(String text) {

@@ -38,6 +38,7 @@ public class Entity {
     public int value;
     public int attackValue;
     public int defenseValue;
+    public int intellectValue;
     public String itemDescription = "";
     public int price;
     public int knockBackPower = 0;

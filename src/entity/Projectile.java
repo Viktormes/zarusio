@@ -8,6 +8,7 @@ public class Projectile extends Entity {
 
     Entity user;
 
+
     public Projectile(GamePanel gp) {
 
         super(gp);
@@ -29,7 +30,7 @@ public class Projectile extends Entity {
         if (user == gp.player) {
             int monsterIndex = gp.collisionChecker.checkEntity(this, gp.enemy);
             if(monsterIndex != 999) {
-                gp.player.damageEnemy(monsterIndex, attack, knockBackPower);
+                gp.player.damageEnemy(monsterIndex, attack , knockBackPower);
                 generateParticle(user.projectile, gp.enemy[gp.currentMap][monsterIndex]);
                 alive = false;
             }

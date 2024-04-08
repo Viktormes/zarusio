@@ -1,6 +1,7 @@
 package object;
 
 import entity.Entity;
+import entity.Player;
 import entity.Projectile;
 import main.GamePanel;
 
@@ -9,19 +10,27 @@ import java.awt.*;
 public class ObjectFrostBolt extends Projectile {
 
     GamePanel gp;
+    Player player;
 
-    public ObjectFrostBolt(GamePanel gp) {
+    public ObjectFrostBolt(GamePanel gp, Player player) {
         super(gp);
         this.gp = gp;
+        this.player = player;
+
+
 
         name = "Frost Bolt";
         speed = 12;
         maxHealth = 80;
         currentHealth = maxHealth;
-        attack = 2;
+        attack = calculateAttack();
         useCost = 1;
         alive = false;
         getImage();
+    }
+
+    public int calculateAttack() {
+        return 2 + (player.getIntellect() /2);
     }
 
     public void getImage() {

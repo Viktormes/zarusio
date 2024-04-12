@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/res/spells/magicBeam.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/blobs/version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot/chatSessions/xd.lck" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/object/ObjectDefaultRobe.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Projectile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/holeMap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/holeMap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/worldMap" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/worldMap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectDefaultRobe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectFrostBolt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/ObjectPowerRobe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/object/ObjectPowerRobe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +160,9 @@
       <workItem from="1712573619493" duration="122000" />
       <workItem from="1712574009221" duration="329000" />
       <workItem from="1712574345221" duration="175000" />
-      <workItem from="1712574534705" duration="3982000" />
+      <workItem from="1712574534705" duration="15850000" />
+      <workItem from="1712832077964" duration="591000" />
+      <workItem from="1712834762566" duration="13679000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

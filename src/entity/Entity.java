@@ -20,7 +20,7 @@ public class Entity {
             attackLeft1, attackLeft2, attackRight1, attackRight2;
     public String direction = "down";
 
-    public BufferedImage image, image2, image3;
+    public BufferedImage image, image2, image3, magicSpellsImage;
 
     public int type;
     public final int typePlayer = 0;

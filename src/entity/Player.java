@@ -24,9 +24,6 @@ public class Player extends Entity {
     private boolean twoButtonWasPressed = false;
     private boolean threeButtonWasPressed = false;
 
-
-    BufferedImage magicBeamImage;
-
     public Player(GamePanel gp, KeyHandler keyH) {
 
         super(gp);
@@ -34,7 +31,7 @@ public class Player extends Entity {
         this.gp = gp;
         this.keyH = keyH;
 
-        magicBeamImage = setup("/res/spells/magicBeam", gp.tileSize, gp.tileSize);
+        magicSpellsImage = setup("/res/spells/magicBeam", gp.tileSize, gp.tileSize);
 
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
@@ -162,6 +159,12 @@ public class Player extends Entity {
             attackRight2 = setup("/res/player/attackAxeRight2", gp.tileSize * 2, gp.tileSize);
             attackLeft1 = setup("/res/player/attackAxeLeft1", gp.tileSize * 2, gp.tileSize);
             attackLeft2 = setup("/res/player/attackAxeLeft2", gp.tileSize * 2, gp.tileSize);
+        }
+    }
+
+    public void drawMagicBeam(Graphics2D g2, int x, int y) {
+        if (magicSpellsImage != null) {
+            g2.drawImage(magicSpellsImage, x, y, null);
         }
     }
 
@@ -407,16 +410,13 @@ public class Player extends Entity {
         return new Color(190, 8, 8);
     }
     public int getParticleSize() {
-        int size = 10;
-        return size;
+        return 10;
     }
     public int getParticleSpeed() {
-        int speed = 1;
-        return speed;
+        return 1;
     }
     public int getParticleMaxHealth() {
-        int maxHealth = 20;
-        return maxHealth;
+        return 20;
     }
 
     public void dash() {
@@ -483,7 +483,7 @@ public class Player extends Entity {
     }
 
     public void magicBeam() {
-        int manaCost = 2;
+        int manaCost = 0;
         if (currentMana >= manaCost) {
             currentMana -= manaCost;
 
@@ -513,6 +513,7 @@ public class Player extends Entity {
                 Entity tempEntity = new Entity(gp);
                 tempEntity.worldX = checkX;
                 tempEntity.worldY = checkY;
+
 
                 int enemyIndex = gp.collisionChecker.checkEntity(tempEntity, gp.enemy);
                 if (enemyIndex != 999) {

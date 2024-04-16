@@ -805,25 +805,5 @@ public class Player extends Entity {
 
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
 
-            tempScreenX = screenX + solidArea.x;
-            tempScreenY = screenY + solidArea.y;
-            switch (direction) {
-                case "up":
-                    tempScreenY = screenY - attackArea.height;
-                    break;
-                case "down":
-                    tempScreenY = screenY + gp.tileSize;
-                    break;
-                case "left":
-                    tempScreenX = screenX - attackArea.width;
-                    break;
-                case "right":
-                    tempScreenX = screenX + gp.tileSize;
-                    break;
-            }
-            g2.setColor(Color.red);
-            g2.setStroke(new BasicStroke(1));
-            g2.drawRect(tempScreenX, tempScreenY, attackArea.width, attackArea.height);
         }
-
     }

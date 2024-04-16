@@ -30,8 +30,6 @@ public class UI {
     public Entity merchant;
 
 
-    int fps;
-
     public UI(GamePanel gp) {
         this.gp = gp;
         try {
@@ -75,8 +73,6 @@ public class UI {
         g2.setFont(font.deriveFont(40F));
         g2.setColor(Color.WHITE);
 
-        fps = gp.FPS;
-        g2.drawString("FPS: " + fps, gp.screenWidth - 150, 90);
 
         if (gp.gameState == gp.titleState) {
             drawTitleScreen();

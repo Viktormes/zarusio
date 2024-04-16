@@ -8,11 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-       // System.setProperty("sun.java2d.opengl", "true");
-        System.setProperty("sun.java2d.d3d", "false");
+        System.setProperty("sun.java2d.opengl", "True");
+        //System.setProperty("sun.java2d.d3d", "false");
         window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
+        window.setUndecorated(true);
+        window.setResizable(true);
         window.setTitle("Zarusio");
 
         GamePanel gamePanel = new GamePanel();

@@ -13,6 +13,8 @@ public class ObjectKey extends Entity {
         super(gp);
         name = "key";
         front1 = setup("/res/items/key",gp.tileSize,gp.tileSize);
+        itemDescription = "[Key]\nIt's a key. It opens things.";
+        price = 60;
 
     }
 }

@@ -3,8 +3,6 @@ package object;
 import entity.Entity;
 import main.GamePanel;
 
-import javax.imageio.ImageIO;
-
 public class ObjectChest extends Entity {
 
 

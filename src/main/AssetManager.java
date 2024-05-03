@@ -1,11 +1,11 @@
 package main;
 
+import enemy.Ghost;
 import enemy.PlantMonster;
-import entity.NPC_Devil;
-import object.ObjectChest;
-import object.ObjectDoor;
-import object.ObjectKey;
-import object.ObjectPowerSocks;
+import entity.Player;
+import entity.npcDevil;
+import entity.npcMerchant;
+import object.*;
 
 public class AssetManager {
 
@@ -17,52 +17,149 @@ public class AssetManager {
 
     public void setObject() {
 
-        gp.itemObject[4] = new ObjectPowerSocks(gp);
-        gp.itemObject[4].worldX = 24 * gp.tileSize;
-        gp.itemObject[4].worldY = 40 * gp.tileSize;
-
+        int mapNum = gp.currentMap;
+        int i = 0;
+        gp.itemObject[mapNum][i] = new ObjectPowerSocks(gp);
+        gp.itemObject[mapNum][i].worldX = 24 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 40 * gp.tileSize;
+        i++;
+        gp.itemObject[mapNum][i] = new ObjectRedPear(gp);
+        gp.itemObject[mapNum][i].worldX = 49 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 7 * gp.tileSize;
+        i++;
+        gp.itemObject[mapNum][i] = new ObjectRedPear(gp);
+        gp.itemObject[mapNum][i].worldX = 51 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 7 * gp.tileSize;
+        i++;
+        gp.itemObject[mapNum][i] = new ObjectRedPear(gp);
+        gp.itemObject[mapNum][i].worldX = 49 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 8 * gp.tileSize;
+        i++;
+        gp.itemObject[mapNum][i] = new ObjectRedPear(gp);
+        gp.itemObject[mapNum][i].worldX = 52 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 8 * gp.tileSize;
+        i++;
+        gp.itemObject[mapNum][i] = new ObjectHeart(gp);
+        gp.itemObject[mapNum][i].worldX = 20 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 38 * gp.tileSize;
     }
 
     public void setNPC() {
-        gp.npc[0] = new NPC_Devil(gp);
-        gp.npc[0].worldX = 23 * gp.tileSize;
-        gp.npc[0].worldY = 20 * gp.tileSize;
+
+        int mapNum = gp.currentMap;
+        int i = 0;
+
+        gp.npc[mapNum][i] = new npcDevil(gp);
+        gp.npc[mapNum][i].worldX = 23 * gp.tileSize;
+        gp.npc[mapNum][i].worldY = 20 * gp.tileSize;
+        i++;
+
+        mapNum = 1;
+        i = 0;
+        gp.npc[mapNum][i] = new npcMerchant(gp);
+        gp.npc[mapNum][i].worldX = 15 * gp.tileSize;
+        gp.npc[mapNum][i].worldY = 17 * gp.tileSize;
+        i++;
+
 
     }
 
     public void setEnemy() {
 
-
+        int mapNum = 0;
         int i = 0;
 
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 10 * gp.tileSize;
-        gp.enemy[i].worldY = 46 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 24 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 56 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 23 * gp.tileSize;
-        gp.enemy[i].worldY = 38 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 23 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 58 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 23 * gp.tileSize;
-        gp.enemy[i].worldY = 40 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 27 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 58 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 43 * gp.tileSize;
-        gp.enemy[i].worldY = 10 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 29 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 55 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 23 * gp.tileSize;
-        gp.enemy[i].worldY = 39 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 23 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 38 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 10 * gp.tileSize;
-        gp.enemy[i].worldY = 48 * gp.tileSize;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 23 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 40 * gp.tileSize;
         i++;
-        gp.enemy[i] = new PlantMonster(gp);
-        gp.enemy[i].worldX = 10 * gp.tileSize;
-        gp.enemy[i].worldY = 46 * gp.tileSize;
-
-
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 39 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 10 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 23 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 39 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 71 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 43 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new Ghost(gp);
+        gp.enemy[mapNum][i].worldX = 75 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 46 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new Ghost(gp);
+        gp.enemy[mapNum][i].worldX = 74 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 43 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new Ghost(gp);
+        gp.enemy[mapNum][i].worldX = 72 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 43 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 55 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 74 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 68 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 75 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 53 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 83 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 85 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 80 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 81 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 80 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 81 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 87 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 86 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 88 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 86 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 86 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 89 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 86 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 90 * gp.tileSize;
+        i++;
     }
 }

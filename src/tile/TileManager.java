@@ -14,17 +14,19 @@ public class TileManager {
 
     GamePanel gp;
     public Tile[] tile;
-    public int[][] mapTileNum;
+    public int[][][] mapTileNum;
 
     public TileManager(GamePanel gp) {
 
         this.gp = gp;
 
         tile = new Tile[100];
-        mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+        mapTileNum = new int[gp.maxMap][gp.maxWorldCol][gp.maxWorldRow];
+
 
         getTileImage();
-        loadMap("/map/worldmap");
+        loadMap("/map/worldMap",0);
+        loadMap("/map/holeMap",1);
 
     }
 
@@ -40,6 +42,23 @@ public class TileManager {
         setup(7, "water", true);
         setup(8,"sandstone1",false);
         setup(9,"stoneTileFour",false);
+        setup(10,"hole",false);
+        setup(11,"darkness",true);
+        setup(12,"dirtTile",false);
+        setup(13,"portal", false);
+        setup(14,"coolstone",true);
+        setup(15,"waterBeachDown",true);
+        setup(17,"waterBeachLeft",true);
+        setup(16,"waterBeachRight",true);
+        setup(18,"waterBeachUp",true);
+        setup(19,"grassSandDown",false);
+        setup(20,"grassSandLeft",false);
+        setup(21,"grassSandRight",false);
+        setup(22,"grassSandUp",false);
+        setup(23,"treeTwo",true);
+        setup(24,"treeThree",true);
+        setup(26,"deadTree",true);
+
 
     }
 
@@ -57,7 +76,7 @@ public class TileManager {
         }
     }
 
-    public void loadMap(String filePath) {
+    public void loadMap(String filePath, int map) {
 
        try {
            InputStream is = getClass().getResourceAsStream(filePath);
@@ -77,7 +96,7 @@ public class TileManager {
 
                    int num = Integer.parseInt(numbers[col]);
 
-                   mapTileNum[col][row] = num;
+                   mapTileNum[map][col][row] = num;
                    col++;
                }
                if (col == gp.maxWorldCol) {
@@ -95,7 +114,7 @@ public class TileManager {
     public void draw(Graphics2D g2) {
         for (int worldRow = 0; worldRow < gp.maxWorldRow; worldRow++) {
             for (int worldCol = 0; worldCol < gp.maxWorldCol; worldCol++) {
-                int tileNum = mapTileNum[worldCol][worldRow];
+                int tileNum = mapTileNum[gp.currentMap][worldCol][worldRow];
                 int worldX = worldCol * gp.tileSize;
                 int worldY = worldRow * gp.tileSize;
                 int screenX = worldX - gp.player.worldX + gp.player.screenX;
@@ -126,7 +145,5 @@ public class TileManager {
                 g2.drawImage(tile[tileNum].image, screenX, screenY ,null);
             }
         }
-
+        }
     }
-
-}

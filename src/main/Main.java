@@ -12,7 +12,7 @@ public class Main {
         //System.setProperty("sun.java2d.d3d", "false");
         window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setUndecorated(true);
+        window.setUndecorated(false);
         window.setResizable(true);
         window.setTitle("Zarusio");
 

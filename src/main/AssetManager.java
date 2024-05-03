@@ -129,5 +129,37 @@ public class AssetManager {
         gp.enemy[mapNum][i].worldX = 53 * gp.tileSize;
         gp.enemy[mapNum][i].worldY = 83 * gp.tileSize;
         i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 85 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 80 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 81 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 80 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 81 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 87 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 86 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 88 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 86 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 86 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 89 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new PlantMonster(gp);
+        gp.enemy[mapNum][i].worldX = 86 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 90 * gp.tileSize;
+        i++;
     }
 }

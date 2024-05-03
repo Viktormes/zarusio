@@ -476,6 +476,19 @@ public class Player extends Entity {
                     }
                 }
             }
+            for (int i = 0; i < gp.projectile[gp.currentMap].length; i++) {
+                Entity projectile = gp.projectile[gp.currentMap][i];
+                if (projectile != null) {
+                    int dx = projectile.worldX - worldX;
+                    int dy = projectile.worldY - worldY;
+                    int distance = (int) Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance <= damageRadius) {
+                        destroyProjectile(i);
+                    }
+                }
+            }
+
         }
         else {
             gp.ui.addMessage("Not enough mana!");
@@ -518,6 +531,10 @@ public class Player extends Entity {
                 int enemyIndex = gp.collisionChecker.checkEntity(tempEntity, gp.enemy);
                 if (enemyIndex != 999) {
                     damageEnemy(enemyIndex, damage, 10);
+                }
+                int projectileIndex = gp.collisionChecker.checkEntity(tempEntity, gp.projectile);
+                if (projectileIndex != 999) {
+                    destroyProjectile(projectileIndex);
                 }
             }
         }

@@ -535,7 +535,7 @@ public class UI {
     public void drawOptionsScreen() {
 
         g2.setColor(Color.WHITE);
-        g2.setFont(font.deriveFont(50f));
+        g2.setFont(font.deriveFont(70F));
 
         int frameX = gp.tileSize * 6;
         int frameY = gp.tileSize;

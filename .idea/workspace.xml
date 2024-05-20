@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6e7ce7d9-3ed6-40cf-b7ee-5896e2fe620c" name="Changes" comment="commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Entity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/AssetManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/main/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Zarusio/tile/TileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Zarusio-1.0.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +166,7 @@
       <workItem from="1714743440233" duration="4000" />
       <workItem from="1714743510194" duration="2000" />
       <workItem from="1716187849838" duration="3249000" />
-      <workItem from="1716229892344" duration="4485000" />
+      <workItem from="1716229892344" duration="5355000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <option name="closed" value="true" />

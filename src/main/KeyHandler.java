@@ -11,7 +11,6 @@ public class KeyHandler implements KeyListener {
             arrowKeyPressed, onePressed, twoPressed, threePressed;
     public boolean tPressed = false;
 
-
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
 
@@ -19,12 +18,10 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-
 
         int code = e.getKeyCode();
 
@@ -64,13 +61,13 @@ public class KeyHandler implements KeyListener {
                     gp.ui.commandNum--;
                     gp.playSound(10);
                     if (gp.ui.commandNum < 0) {
-                        gp.ui.commandNum = 2;
+                        gp.ui.commandNum = 1;
                     }
                 }
                 if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
                     gp.ui.commandNum++;
                     gp.playSound(10);
-                    if (gp.ui.commandNum > 2) {
+                    if (gp.ui.commandNum > 1) {
                         gp.ui.commandNum = 0;
                     }
                 }
@@ -82,11 +79,6 @@ public class KeyHandler implements KeyListener {
                         gp.playMusic(1);
                     }
                     if (gp.ui.commandNum == 1) {
-                        System.out.println("Druid");
-                        gp.gameState = gp.playState;
-                        gp.playMusic(1);
-                    }
-                    if (gp.ui.commandNum == 2) {
                         gp.ui.titleScreenState = 0;
                     }
                 }

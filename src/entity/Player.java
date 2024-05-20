@@ -6,7 +6,6 @@ import object.*;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -58,9 +57,6 @@ public class Player extends Entity {
 
         worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
-        // worldX = gp.tileSize * 17;
-        // worldY = gp.tileSize * 17;
-        // gp.currentMap = 1;
         defaultSpeed = 8;
         speed = defaultSpeed;
         direction = "down";

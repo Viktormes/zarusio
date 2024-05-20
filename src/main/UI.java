@@ -14,7 +14,7 @@ public class UI {
     GamePanel gp;
     Graphics2D g2;
     Font font;
-    BufferedImage heartFull, heartHalf, heartEmpty, mana, manaBlank, coin;
+    BufferedImage heartFull, mana, coin;
     ArrayList<FloatingText> floatingTexts = new ArrayList<>();
     ArrayList<String> message = new ArrayList<>();
     ArrayList<Integer> messageCounter = new ArrayList<>();
@@ -29,12 +29,11 @@ public class UI {
     int counter = 0;
     public Entity merchant;
 
-
     public UI(GamePanel gp) {
         this.gp = gp;
         try {
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File("src/res/fonts/Avenixel-Regular.ttf"));
-            customFont = customFont.deriveFont(40F);
+            customFont = customFont.deriveFont(35F);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(customFont);
             font = customFont;
@@ -42,14 +41,10 @@ public class UI {
             e.printStackTrace();
         }
 
-
         Entity heart = new ObjectHeart(gp);
         heartFull = heart.image;
-        heartHalf = heart.image2;
-        heartEmpty = heart.image3;
         Entity manaCrystal = new object.ObjectMana(gp);
         mana = manaCrystal.image;
-        manaBlank = manaCrystal.image2;
         Entity goldCoin = new object.ObjectCoin(gp);
         coin = goldCoin.front1;
 
@@ -70,9 +65,8 @@ public class UI {
     public void draw(Graphics2D g2) {
         this.g2 = g2;
 
-        g2.setFont(font.deriveFont(40F));
+        g2.setFont(font.deriveFont(35F));
         g2.setColor(Color.WHITE);
-
 
         if (gp.gameState == gp.titleState) {
             drawTitleScreen();
@@ -179,9 +173,7 @@ public class UI {
     public void tradeBuy() {
 
         drawInventory(gp.player, false);
-
         drawInventory(merchant, true);
-
 
         int x = gp.tileSize*2;
         int y =  gp.tileSize*9;
@@ -205,8 +197,8 @@ public class UI {
             width = (int) (gp.tileSize*1.5);
             height = gp.tileSize/2;
             drawSubWindow(x, y, width, height);
-            g2.drawImage(coin, x + 10, y +4, 42, 42, null);
-            g2.drawString(String.valueOf(merchant.inventory.get(itemIndex).price), x + 90, y + 35);
+            g2.drawImage(coin, x + 10, y + 1, 42, 42, null);
+            g2.drawString(String.valueOf(merchant.inventory.get(itemIndex).price), x + 80, y + 30);
 
 
             if (gp.keyH.enterPressed) {
@@ -262,8 +254,8 @@ public class UI {
             width = (int) (gp.tileSize*1.5);
             height = gp.tileSize/2;
             drawSubWindow(x, y, width, height);
-            g2.drawImage(coin, x + 10, y +4, 42, 42, null);
-            g2.drawString(String.valueOf(gp.player.inventory.get(itemIndex).price/2), x + 90, y + 35);
+            g2.drawImage(coin, x + 10, y + 1, 42, 42, null);
+            g2.drawString(String.valueOf(gp.player.inventory.get(itemIndex).price/2), x + 80, y + 30);
 
 
             if (gp.keyH.enterPressed) {
@@ -283,8 +275,6 @@ public class UI {
 
             }
         }
-
-
 
     }
 
@@ -357,7 +347,7 @@ public class UI {
 
         int textX = frameX + 20;
         int textY = frameY + gp.tileSize;
-        final int lineHeight = 70;
+        final int lineHeight = 60;
 
         g2.drawString("Level", textX, textY);
         textY += lineHeight;
@@ -446,9 +436,9 @@ public class UI {
         g2.drawString(value, textX, textY);
         textY += lineHeight;
 
-        g2.drawImage(gp.player.currentWeapon.front1, tailX - gp.tileSize, textY - 34, null);
+        g2.drawImage(gp.player.currentWeapon.front1, tailX - gp.tileSize, textY - 30, null);
         textY += gp.tileSize;
-        g2.drawImage(gp.player.currentRobe.front1, tailX - gp.tileSize, textY - 34, null);
+        g2.drawImage(gp.player.currentRobe.front1, tailX - gp.tileSize, textY - 30, null);
         textY += gp.tileSize;
 
 
@@ -579,7 +569,7 @@ public class UI {
             int textX = frameX + gp.tileSize;
             int textY = frameY + gp.tileSize * 3;
 
-            currentDialog = "Are you sure you want to quit \nand return to the title screen?";
+            currentDialog = "Are you sure you want to quit \nand return \nto the title screen?";
             for (String line : currentDialog.split("\n")) {
                 g2.drawString(line, textX, textY);
                 textY += 40;
@@ -714,8 +704,8 @@ public class UI {
 
     public void drawPlayerHealth() {
         int barWidth = 350;
-        int barHeight = 35;
-        int margin = 30;
+        int barHeight = 25;
+        int margin = 40;
         int healthBarY = margin;
         int manaBarY = healthBarY + barHeight + margin;
 
@@ -747,7 +737,7 @@ public class UI {
         g2.fillRect(barX, manaBarY, manaForegroundWidth, barHeight);
 
         g2.setColor(Color.WHITE);
-        g2.setFont(font.deriveFont(30F));
+        g2.setFont(font.deriveFont(20F));
         String healthText = gp.player.currentHealth + "/" + gp.player.maxHealth;
         int textX = barX + barWidth / 2 - g2.getFontMetrics().stringWidth(healthText) / 2;
         int textY = healthBarY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;
@@ -762,7 +752,7 @@ public class UI {
     public void drawMessage() {
         int messageX = gp.tileSize;
         int messageY = gp.tileSize * 4;
-        g2.setFont(font.deriveFont(40f));
+        g2.setFont(font.deriveFont(30F));
 
         for (int i = 0; i < message.size(); i++) {
 
@@ -856,18 +846,11 @@ public class UI {
             if (commandNum == 0) {
                 g2.drawString(">", x - gp.tileSize, y);
             }
-            text = "Ranger";
-            x = getXForCenteredString(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
-            if (commandNum == 1) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
             text = "Cancel";
             x = getXForCenteredString(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
-            if (commandNum == 2) {
+            if (commandNum == 1) {
                 g2.drawString(">", x - gp.tileSize, y);
             }
 
@@ -964,7 +947,7 @@ public class UI {
 
         drawSubWindow(x, y, width, height);
 
-        g2.setFont(font.deriveFont(40F));
+        g2.setFont(font.deriveFont(30F));
         x += gp.tileSize;
         y += gp.tileSize;
 
@@ -980,6 +963,7 @@ public class UI {
 
         Color cBlack = new Color(0, 0, 0, 190);
         Color cWhite = new Color(255, 255, 255);
+        g2.setFont(font.deriveFont(30F));
         g2.setColor(cBlack);
         g2.fillRoundRect(x, y, width, height, 30, 30);
         g2.setColor(cWhite);
@@ -1022,7 +1006,7 @@ public class UI {
         g2.fillRect(barX, barY, foregroundWidth, barHeight);
 
         g2.setColor(Color.WHITE);
-        g2.setFont(font.deriveFont(35F));
+        g2.setFont(font.deriveFont(25F));
         String text = gp.player.experience + " / " + gp.player.nextLevelExperience + " EXP";
         int textX = barX + barWidth / 2 - g2.getFontMetrics().stringWidth(text) / 2;
         int textY = barY + barHeight / 2 + g2.getFontMetrics().getAscent() / 2;

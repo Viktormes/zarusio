@@ -14,7 +14,7 @@ import java.util.Comparator;
 public class GamePanel extends JPanel implements Runnable {
 
     final int originalTileSize = 16;
-    final int scale = 6;
+    final int scale = 5;
 
     public int tileSize = originalTileSize * scale;
     public int maxScreenCol = 20;
@@ -59,7 +59,6 @@ public class GamePanel extends JPanel implements Runnable {
     public Entity[][] npc = new Entity[maxMap][10];
     public Entity[][] enemy = new Entity[maxMap][100];
     public Entity[][] projectile = new Entity[maxMap][20];
-   // public ArrayList<Entity> projectileList = new ArrayList<>();
     public ArrayList<Entity> particleList = new ArrayList<>();
     ArrayList<Entity> entityList = new ArrayList<>();
 
@@ -92,7 +91,6 @@ public class GamePanel extends JPanel implements Runnable {
         tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
         g2 = (Graphics2D) tempScreen.getGraphics();
 
-
         if(fullScreenOn) {
             setFullScreen();
         }
@@ -124,8 +122,6 @@ public class GamePanel extends JPanel implements Runnable {
 
         screenWidth2 = Main.window.getWidth();
         screenHeight2 = Main.window.getHeight();
-
-
 
     }
     public void startGameThread() {
@@ -237,6 +233,7 @@ public class GamePanel extends JPanel implements Runnable {
             if (player != null) {
                 entityList.add(player);
             }
+
             for (int i = 0; i < npc[1].length; i++) {
                 if (npc[i] != null && npc[currentMap][i] != null) {
                     entityList.add(npc[currentMap][i]);

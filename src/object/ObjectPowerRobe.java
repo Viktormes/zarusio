@@ -12,6 +12,6 @@ public class ObjectPowerRobe extends Entity {
         defenseValue = 2;
         intellectValue = 1;
         itemDescription = "[Power Robe]\nA robe. It's powerful.";
-        price = 50;
+        price = 20;
     }
 }

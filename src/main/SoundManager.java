@@ -5,8 +5,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class SoundManager {
-    private static final int MAX_SOUNDS = 30;
-    private Queue<Clip> sounds;
+    private static final int MAX_SOUNDS = 10;
+    private final Queue<Clip> sounds;
 
     public SoundManager() {
         sounds = new LinkedList<>();

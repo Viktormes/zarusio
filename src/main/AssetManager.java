@@ -20,8 +20,8 @@ public class AssetManager {
         int mapNum = gp.currentMap;
         int i = 0;
         gp.itemObject[mapNum][i] = new ObjectPowerSocks(gp);
-        gp.itemObject[mapNum][i].worldX = 24 * gp.tileSize;
-        gp.itemObject[mapNum][i].worldY = 40 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldX = 85 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 88 * gp.tileSize;
         i++;
         gp.itemObject[mapNum][i] = new ObjectRedPear(gp);
         gp.itemObject[mapNum][i].worldX = 49 * gp.tileSize;
@@ -42,6 +42,12 @@ public class AssetManager {
         gp.itemObject[mapNum][i] = new ObjectHeart(gp);
         gp.itemObject[mapNum][i].worldX = 20 * gp.tileSize;
         gp.itemObject[mapNum][i].worldY = 38 * gp.tileSize;
+
+        mapNum = 1;
+        i = 0;
+        gp.itemObject[mapNum][i] = new ObjectAxe(gp);
+        gp.itemObject[mapNum][i].worldX = 47 * gp.tileSize;
+        gp.itemObject[mapNum][i].worldY = 33 * gp.tileSize;
     }
 
     public void setNPC() {
@@ -143,7 +149,7 @@ public class AssetManager {
         i++;
         gp.enemy[mapNum][i] = new PlantMonster(gp);
         gp.enemy[mapNum][i].worldX = 84 * gp.tileSize;
-        gp.enemy[mapNum][i].worldY = 81 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 83 * gp.tileSize;
         i++;
         gp.enemy[mapNum][i] = new PlantMonster(gp);
         gp.enemy[mapNum][i].worldX = 87 * gp.tileSize;
@@ -159,7 +165,18 @@ public class AssetManager {
         i++;
         gp.enemy[mapNum][i] = new PlantMonster(gp);
         gp.enemy[mapNum][i].worldX = 86 * gp.tileSize;
-        gp.enemy[mapNum][i].worldY = 90 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 88 * gp.tileSize;
         i++;
+
+        mapNum = 1;
+        i = 0;
+        gp.enemy[mapNum][i] = new Ghost(gp);
+        gp.enemy[mapNum][i].worldX = 47 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 33 * gp.tileSize;
+        i++;
+        gp.enemy[mapNum][i] = new Ghost(gp);
+        gp.enemy[mapNum][i].worldX = 45 * gp.tileSize;
+        gp.enemy[mapNum][i].worldY = 35 * gp.tileSize;
+
     }
 }

@@ -81,6 +81,7 @@ public class Player extends Entity {
 
     public void setDefaultPositions() {
 
+        gp.currentMap = 0;
         worldX = gp.tileSize * 22;
         worldY = gp.tileSize * 23;
         direction = "down";
@@ -609,6 +610,13 @@ public class Player extends Entity {
                         inventory.add(gp.itemObject[gp.currentMap][i]);
                         gp.itemObject[gp.currentMap][i] = null;
                         gp.ui.addMessage("You picked up the Super Socks! Wow you are fast!");
+
+                    }
+                    if(objectName.equals("Woodcutting Axe")) {
+                        gp.playSound(2);
+                        inventory.add(gp.itemObject[gp.currentMap][i]);
+                        gp.itemObject[gp.currentMap][i] = null;
+                        gp.ui.addMessage("You picked up the Woodcutting Axe!");
 
                     }
                     if (objectName.equals("Red Pear") && currentHealth != maxHealth) {
